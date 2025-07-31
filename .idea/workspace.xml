@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4fd221c6-5397-426a-a1fd-2d5fcace444d" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/adapters/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/adapters/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/adapters/src/dtos/AuthDTO.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/adapters/src/dtos/BlockDTO.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/adapters/src/infrastructures/ApiDB.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/adapters/src/infrastructures/IndexedDB.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/adapters/src/infrastructures/interfaces/IInfrastructures.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/adapters/src/presenters/AuthPresenter.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/adapters/src/presenters/OperationPresenter.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/adapters/src/presenters/interfaces/IAuthPresenter.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/adapters/src/presenters/interfaces/IOperationPresenter.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/adapters/src/presenters/interfaces/IPresenters.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/adapters/src/repositories/auth/NetworkAuthRepository.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/adapters/src/repositories/operation/IndexDBRepository.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/adapters/src/repositories/operation/NetworkRepository.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/domains/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/domains/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/domains/src/aggregates/Operation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/domains/src/aggregates/interface/IOperation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/domains/src/dtos/interfaces/IAuthDTO.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/domains/src/dtos/interfaces/IBlockDTO.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/domains/src/entities/Block.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/domains/src/entities/User.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/domains/src/entities/interfaces/IBlock.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/domains/src/entities/interfaces/IUser.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/domains/src/repositories/interfaces/IIndexDBRepository.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/domains/src/repositories/interfaces/INetworkAuthRepository.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/domains/src/repositories/interfaces/INetworkOperationRepository.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/domains/src/repositories/interfaces/IRepositories.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/domains/src/useCases/AuthUseCase.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/domains/src/useCases/OperationUseCase.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/domains/src/useCases/interfaces/IAuthUseCase.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/domains/src/useCases/interfaces/IOperationUseCase.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/domains/src/vos/UserInfoVO.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/domains/src/vos/interfaces/IUserInfoVO.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/domains/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/components/DialogEditor.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/components/DrawerListItem.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/components/Forms.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/components/Icon.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/components/InputWithLabel.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/components/Modal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/components/Text.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/components/TextWithIcon.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/di/IUseCase.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/di/infrastructures.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/di/presenters.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/di/repositories.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/di/useCases.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/di/useDi.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/globals.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/hooks/debounce.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/hooks/react-query.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/hooks/useAuth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/hooks/useBlockTree.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/hooks/useBroadcast.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/hooks/useDialog.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/hooks/useModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/pages/auth/sign-in/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/pages/auth/sign-up/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/pages/space/components/Block.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/pages/space/components/BlockTree.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/pages/space/error.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/pages/space/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/pages/space/loading.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/pages/space/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/store/createSelectors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/utils/block.parser.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/utils/constants.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/utils/key-event.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/utils/query-helper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/utils/query-key.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/utils/synchronization.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/utils/transform.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/vms/BlockVM.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/app/vms/interfaces/IBlockVM.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/eslint.config.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/next-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/next.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/postcss.config.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/public/file.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/public/globe.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/public/next.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/public/vercel.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/public/window.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/my-app/tsconfig.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" show_ignored="true">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2zRNtMhD421X32lcV6ldQJ7BBnl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "code.cleanup.on.save": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/yelm/Documents/project/block-stack/packages/domains/src",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.stylelint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "actions.on.save",
+    "ts.external.directory.path": "/Users/yelm/Documents/project/block-stack/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "GitStage.ChangesTree.GroupingKeys": [
+      "directory",
+      "module",
+      "repository"
+    ]
+  }
+}]]></component>
+  <component name="ReactDesignerToolWindowState">
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.intellij.reactbuddy.reactComponents" value="false" />
+        <entry key="com.intellij.reactbuddy.reactInspector" value="false" />
+        <entry key="com.intellij.reactbuddy.storybook" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/domains/src" />
+      <recent name="$PROJECT_DIR$/packages/adapters/src/infrastructures/interfaces" />
+      <recent name="$PROJECT_DIR$/packages/domains/src/repositories/interfaces" />
+      <recent name="$PROJECT_DIR$/packages/adapters" />
+      <recent name="$PROJECT_DIR$/packages/my-app/app/pages/auth/sign-up" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/domains/src/aggregates/interface" />
+      <recent name="$PROJECT_DIR$/packages/my-app/app/components" />
+      <recent name="$PROJECT_DIR$/packages/my-app/app/pages/space/components" />
+      <recent name="$PROJECT_DIR$/packages/my-app/app/components/molecules" />
+      <recent name="$PROJECT_DIR$/packages/my-app/app/pages/dashboard" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <myKeys>
+      <visibility group="Grunt" flag="true" />
+      <visibility group="Gulp" flag="true" />
+      <visibility group="HTTP 요청" flag="true" />
+      <visibility group="Node.js" flag="true" />
+      <visibility group="npm" flag="true" />
+      <visibility group="yarn" flag="true" />
+      <visibility group="실행 구성" flag="true" />
+      <visibility group="최근 프로젝트" flag="true" />
+    </myKeys>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-WS-241.15989.105" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="4fd221c6-5397-426a-a1fd-2d5fcace444d" name="변경" comment="" />
+      <created>1751690138786</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1751690138786</updated>
+      <workItem from="1751690139912" duration="14159000" />
+      <workItem from="1751712731515" duration="88000" />
+      <workItem from="1751712841025" duration="4359000" />
+      <workItem from="1751779488241" duration="5855000" />
+      <workItem from="1751785940260" duration="39234000" />
+      <workItem from="1752039768926" duration="9233000" />
+      <workItem from="1752116130206" duration="2819000" />
+      <workItem from="1752138203879" duration="2215000" />
+      <workItem from="1752156609162" duration="17488000" />
+      <workItem from="1752294041520" duration="4934000" />
+      <workItem from="1752315066853" duration="6432000" />
+      <workItem from="1752407455027" duration="23607000" />
+      <workItem from="1752578829999" duration="23964000" />
+      <workItem from="1752675284067" duration="375000" />
+      <workItem from="1752729403772" duration="13812000" />
+      <workItem from="1752764931353" duration="2217000" />
+      <workItem from="1753011743038" duration="158000" />
+      <workItem from="1753083939811" duration="69356000" />
+      <workItem from="1753708868632" duration="1293000" />
+      <workItem from="1753757954226" duration="11596000" />
+      <workItem from="1753776765805" duration="16647000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
