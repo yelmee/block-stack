@@ -22,9 +22,12 @@
 ## 🗂️ Folder Structure
 
 packages/
-├── adapter/           // Supabase RPC, Auth + IndexedDB Repository
-├── domain/          // Operation, User Entity + UseCase
-├── client/            // Next.js Client + Di 
+
+├── adapter/          --> Supabase RPC, Auth + IndexedDB Repository
+
+├── domain/          --> Operation, User Entity + UseCase
+
+├── client/           --> Next.js Client + Di 
 
 ---
 
