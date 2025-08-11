@@ -5,21 +5,20 @@ import INetworkOperationRepository
 import {
     IIndexDBRepository
 } from "../repositories/interfaces/IIndexDBRepository";
-import {
-    IBlockMap
-} from "../entities/interfaces/IBlock";
 import Block
     from "../entities/Block";
-import{
-    IOperationRequestParams,
-} from "../aggregates/interface/IOperation";
-import Operation
-    from "../aggregates/Operation";
+import {
+    IOperation
+} from "../aggregates/interface/IOperationRequest";
+import {
+    IBlockMapDTO
+} from "../dtos/interfaces/IBlockDTO";
 
 export default class OperationUseCase implements IOperationUseCase {
     networkRepo: INetworkOperationRepository
     indexDBRepo: IIndexDBRepository
     isOnline: boolean
+
 
     constructor(indexDBRepo: IIndexDBRepository, networkRepo: INetworkOperationRepository) {
         this.networkRepo = networkRepo
@@ -31,8 +30,9 @@ export default class OperationUseCase implements IOperationUseCase {
         this.isOnline = isOnline
     }
 
-    async getBlocks(spaceId: string): Promise<IBlockMap> {
+    async getBlocks(spaceId: string): Promise<IBlockMapDTO> {
         const res = this.isOnline ? await this.networkRepo.getBlocks(spaceId) : await this.indexDBRepo.getBlocks(spaceId)
+        if(!res) return {} as IBlockMapDTO
         const arr = Object.entries(res).map(([key, block]) =>{
             return [key, new Block({
                 content: block.content,
@@ -50,35 +50,14 @@ export default class OperationUseCase implements IOperationUseCase {
         })
         return Object.fromEntries(arr)
     }
-    async getBlock(spaceId: string, blockId: string): Promise<IBlockMap> {
-        const res = await this.getBlocks(spaceId)
-        const arr = Object.entries(res).filter(([key, block]) =>{
-            if (key === blockId) {
-                return [key, block]
-            }
-        })
-        return Object.fromEntries(arr)
+
+    async updateOperation(spaceId: string, operation: IOperation): Promise<IBlockMapDTO | string> {
+        return this.isOnline ? await this.networkRepo.updateOperation(spaceId, [operation]) : await this.indexDBRepo.insertOperation(spaceId, operation)
     }
 
-    async insertOperation(operation: IOperationRequestParams): Promise<boolean> {
-        const omit = (obj: IOperationRequestParams, keys: string[]) =>
-            Object.fromEntries(
-                Object.entries(obj).filter(([key]) => !keys.includes(key))
-            );
-
-        const arg = omit(operation, ['id', 'command'])
-        const op = new Operation(operation.id, {
-            pointer: {id: operation.id},
-            command: operation.command,
-            path: [],
-            arg: {...arg},
-        })
-        return this.isOnline ? await this.networkRepo.updateOperation([op]) : await this.indexDBRepo.updateOperation([op])
-    }
-
-    async flushOperations(): Promise<boolean> {
-        const res = await this.indexDBRepo.getOperations()
-        return await this.networkRepo.updateOperation(res)
+    async flushOperations(spaceId: string): Promise<IBlockMapDTO> {
+        const res = await this.indexDBRepo.getOperations(spaceId)
+        return await this.networkRepo.updateOperation(spaceId, res)
     }
 
 }

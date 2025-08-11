@@ -1,6 +1,8 @@
 import IBlock, {
-    IBLockParams
 } from "./interfaces/IBlock";
+import {
+    IBlockDTO
+} from "../dtos/interfaces/IBlockDTO";
 
 export default class Block implements IBlock{
     readonly id: string
@@ -14,7 +16,7 @@ export default class Block implements IBlock{
     readonly last_modified: Date;
     readonly created_time: Date
 
-    constructor(params: IBLockParams) {
+    constructor(params: IBlockDTO) {
         this.id = params.id
         this.type = params.type
         this.properties = params.properties

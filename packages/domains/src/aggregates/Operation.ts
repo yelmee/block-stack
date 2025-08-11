@@ -1,39 +1,21 @@
-import IOperation
-    , {
+import {
+    ICommand,
+    IOperation,
     IPointer
-} from "./interface/IOperation";
+} from "./interface/IOperationRequest";
 
 
 export default class Operation implements IOperation {
-    requestId: string;
-    operation: IOperationParams;
+    command: ICommand;
+    pointer: IPointer;
+    path: string[];
+    arg: {};
 
-    constructor(requestId: string, operationParams: IOperationParams) {
-        this.requestId = requestId
-        this.operation = operationParams
+    constructor(op: IOperation) {
+        this.command = op.command
+        this.pointer = op.pointer
+        this.path = op.path
+        this.arg = op.arg
     }
 }
 
-type IOperationParams =  InsertOperationType | UpdateOperationType | RemoveOperationType
-
-type InsertOperationType = {
-    pointer: IPointer,
-    command: 'insert',
-    path: string[],
-    arg: {},
-}
-
-
-type UpdateOperationType = {
-    pointer: IPointer,
-    command: 'update',
-    path: string[],
-    arg: {},
-}
-
-type RemoveOperationType = {
-    pointer: IPointer,
-    command: 'remove',
-    path: string[],
-    arg: {},
-}

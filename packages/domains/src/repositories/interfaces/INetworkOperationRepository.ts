@@ -1,13 +1,13 @@
 import {
+    IBlockDTO,
     IBlockMapDTO
 } from "../../dtos/interfaces/IBlockDTO";
 import {
-} from "../../aggregates/Operation";
-import IOperation, {
-} from "../../aggregates/interface/IOperation";
-
+    IOperation
+} from "../../aggregates/interface/IOperationRequest";
 
 export default interface INetworkOperationRepository {
+    getBlock(spaceId: string, blockId: string): Promise<IBlockDTO>
     getBlocks(spaceId: string): Promise<IBlockMapDTO>
-     updateOperation(operation: IOperation[]): Promise<boolean>
+    updateOperation(spaceId: string, operation: IOperation[]): Promise<IBlockMapDTO>
 }

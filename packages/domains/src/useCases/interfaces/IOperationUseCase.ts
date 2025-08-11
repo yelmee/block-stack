@@ -1,18 +1,14 @@
 import {
-} from "../../aggregates/Operation";
-import
-  {
-  IBlockMap
-} from "../../entities/interfaces/IBlock";
+  IOperation
+} from "../../aggregates/interface/IOperationRequest";
 import {
-  IOperationRequestParams
-} from "../../aggregates/interface/IOperation";
+  IBlockMapDTO
+} from "../../dtos/interfaces/IBlockDTO";
 
 
 export default interface IOperationUseCase {
   setIsOnline(isOnline: boolean): void
-  getBlocks(spaceId: string): Promise<IBlockMap>
-  getBlock(spaceId: string, blockId: string): Promise<IBlockMap>
-  insertOperation(operation: IOperationRequestParams): Promise<boolean>
-  flushOperations(): Promise<boolean>
+  getBlocks(spaceId: string): Promise<IBlockMapDTO>
+  updateOperation(spaceId: string, operation: IOperation): Promise<IBlockMapDTO | string>
+  flushOperations(spaceId: string): Promise<IBlockMapDTO>
 }
