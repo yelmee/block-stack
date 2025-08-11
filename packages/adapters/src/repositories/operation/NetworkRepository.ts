@@ -3,52 +3,71 @@ import INetworkOperationRepository
 import ApiDB
     from "../../infrastructures/ApiDB";
 import {
+    IOperation
+} from "domains/src/aggregates/interface/IOperationRequest";
+import {
+    useQuery
+} from "@tanstack/react-query";
+import {
+    Database
+} from "client/database.types";
+import {
+    IBlockDTO,
     IBlockMapDTO
 } from "domains/src/dtos/interfaces/IBlockDTO";
-import IOperation
-    from "domains/src/aggregates/interface/IOperation";
-import {
-    BlockDTO
-} from "../../dtos/BlockMapDTO";
+
+
+type Schema = Database['public']
+type FnName = string & keyof Schema['Functions']
+type Fn<T extends FnName> =  Schema['Functions'][T]
+type ARGS<T extends FnName>=  Fn<T>['Args']
 
 export default class NetworkRepository implements INetworkOperationRepository {
-    apiDB: ApiDB
+    private apiDB: ApiDB
 
     constructor(db: ApiDB) {
         this.apiDB = db
     }
 
-    async getBlocks(spaceId: string): Promise<IBlockMapDTO> {
-        const res  = await this.apiDB.rpc('handle_block', {s_id: spaceId} as {s_id: string})
-        if (res.data) {
-            const dd = Object.entries(res.data as IBlockMapDTO).map(([key, value] ) =>{
-              return [key, new BlockDTO({
-                    content: value.content,
-                    created_by_id: value.content,
-                    created_time: "",
-                    id: "",
-                    last_modified: "",
-                    last_updated: "",
-                    parent_id: "",
-                    properties: "",
-                    space_id: "",
-                    type: ""
+    private async rpc({fn, args}:{fn: FnName, args: ARGS<typeof fn>}) {
+        return useQuery({queryKey: [{fn, args
+            }], queryFn: async ({ queryKey }) => {
+                const [{ fn, args }] = queryKey;
+                const {data, error} = await this.apiDB.rpc(fn, args);
 
-                })]
-            })
-            return Object.fromEntries(dd)
+                if (error) {
+                  return new Error(error.message)
+                }
+                return data
+            }})
+    }
+    async getBlock(spaceId: string, blockId: string): Promise<IBlockDTO>{
+        const data =  await this.getBlocks(spaceId)
+        if (data) {
+            return data.value[blockId] as IBlockDTO
         }else {
-            return {} as IBlockMapDTO
+            return {}  as IBlockDTO
         }
     }
 
-    async updateOperation(operaions: IOperation[]): Promise<boolean> {
-        const res = await this.apiDB.rpc('handle_operation', {op: operaions} as {op: Record<any, any>})
+    async getBlocks(spaceId: string): Promise<IBlockMapDTO>{
+        const {data} =  await this.rpc({fn: "apply_operation", args: {s_id: spaceId}})
+        if (data) {
+            return {spaceId: spaceId, value: data.value}  as IBlockMapDTO
+        }else {
+            return {spaceId: spaceId, value: {}}  as IBlockMapDTO
+        }
+    }
 
-        if (res.error) {
-            return false
-        } else {
-            return true
+    async updateOperation(spaceId: string, operation: IOperation[]): Promise<IBlockMapDTO> {
+        const {data} =  await this.rpc({
+            fn: "handle_operation",
+            args: {op: operation as Record<any, any>}
+        })
+        if (data) {
+            return {spaceId: spaceId, value: data.value}  as IBlockMapDTO
+        }else {
+            return {spaceId: spaceId, value: {}}  as IBlockMapDTO
         }
     }
 };

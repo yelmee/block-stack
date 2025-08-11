@@ -1,15 +1,14 @@
 import {
-    IOperationRequestParams
-} from "domains/src/aggregates/interface/IOperation";
+    IOperation
+} from "domains/src/aggregates/interface/IOperationRequest";
 import {
-    IBlockMap
-} from "domains/src/entities/interfaces/IBlock";
+    IBlockMapDTO
+} from "domains/src/dtos/interfaces/IBlockDTO";
 
 export interface IOperationPresenter{
 
     setIsOnline(isOnline: boolean): void
-    getBlocks(spaceId: string): Promise<IBlockMap>
-    getBlock(spaceId: string, blockId: string): Promise<IBlockMap>
-    flushOperationQueue(): Promise<boolean>
-    insertOperationQueue(params: IOperationRequestParams): Promise<boolean>
+    getBlocks(spaceId: string): Promise<IBlockMapDTO>
+    insertOperationQueue(spaceId: string, params: IOperation): Promise<IBlockMapDTO | string>
+    flushOperationQueue(spaceId: string): Promise<IBlockMapDTO>
 }

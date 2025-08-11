@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@supabase/supabase-js": "^2.48.1",
+    "@tanstack/react-query": "^5.84.2",
     "abbrev": "^3.0.1",
     "dexie": "^4.0.11",
     "dexie-react-hooks": "^1.1.7",

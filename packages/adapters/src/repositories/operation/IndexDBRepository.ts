@@ -4,16 +4,19 @@ import {
 import {
     IIndexDBRepository
 } from "domains/src/repositories/interfaces/IIndexDBRepository";
-import IOperation
-    from "domains/src/aggregates/interface/IOperation";
 import IndexedDB
     from "../../infrastructures/IndexedDB";
-import { IBlockMapDTO } from "domains/src/dtos/interfaces/IBlockDTO";
+import {
+    IBlockMapDTO
+} from "domains/src/dtos/interfaces/IBlockDTO";
+import {
+    IOperation
+} from "domains/src/aggregates/interface/IOperationRequest";
 
 
 export default class IndexDBRepository implements IIndexDBRepository {
     db: IndexedDB
-    operationTable: EntityTable<IOperation, 'requestId'>
+    operationTable: EntityTable<IOperation, 'pointer'>
     blocksTable: EntityTable<IBlockMapDTO, 'spaceId'>
 
     constructor(db: IndexedDB) {
@@ -31,15 +34,10 @@ export default class IndexDBRepository implements IIndexDBRepository {
         const res = await this.db.operations.toArray()
         return res || [] as IOperation[]
     }
-    async  insertOperation(operation: IOperation): Promise<string> {
-        return this.db.operations.put(operation);
+    async  insertOperation(spaceId: string, operation: IOperation): Promise<string> {
+        return this.db.operations.add(operation);
     }
-    async  updateOperation(operation: IOperation[]): Promise<boolean> {
-        const res = operation.map(op =>{
-            return this.db.operations.update(op.requestId, {operation: op.operation})
-        }).every((v) => !!v)
-        return res
-    }
+
     async  deleteOperation(): Promise<void> {
             return this.db.operations.delete("")
     }
