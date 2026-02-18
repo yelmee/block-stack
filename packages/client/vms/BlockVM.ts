@@ -1,19 +1,10 @@
 import {
-    IBlockTreeVM,
     IBlockVM
 } from "./interfaces/IBlockVM";
+import {
+    IBlock
+} from "domains/src/dtos/interfaces/IBlock";
 
-
-export interface BlockTreeVM extends IBlockTreeVM{
-    value: {  [key: string]: IBlockVM}
-
-    // constructor(params: IBlockTreeVM) {
-    //     this.value = this.updateValue(params)
-    // }
-
-
-
-}
 
 export class BlockVM implements IBlockVM{
     id: string;
@@ -27,7 +18,7 @@ export class BlockVM implements IBlockVM{
     created_time: Date;
     created_by_id: string;
 
-    constructor(params: IBlockVM) {
+    constructor(params: IBlock) {
         this.id = params.id
         this.type = params.type
         this.properties = params.properties

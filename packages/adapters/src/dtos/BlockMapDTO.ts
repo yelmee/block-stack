@@ -1,11 +1,11 @@
 import {
-    IBlockDTO,
+    IBlock,
     IBlockMapDTO
-} from "domains/src/dtos/interfaces/IBlockDTO";
+} from "domains/src/dtos/interfaces/IBlock";
 
-export  class BlockDTO implements IBlockDTO{
+export  class BlockDTO implements IBlock{
 
-    constructor(params: IBlockDTO) {
+    constructor(params: IBlock) {
         this.id = params.id
         this.type = params.type
         this.properties = params.properties
@@ -32,20 +32,21 @@ export  class BlockDTO implements IBlockDTO{
 }
 
 export default class BlockMapDTO implements IBlockMapDTO{
-    readonly spaceId: string
-    value: {  [key: string]: IBlockDTO}
+    [blockId: string]: IBlock;
 
     constructor(params: IBlockMapDTO) {
-        this.spaceId = params.spaceId
-        this.value = this.updateValue(params.value)
+         Object.entries(params).map(([key, value])=> {
+             this[key] = new BlockDTO(value)
+        })
     }
 
-    updateValue(value: {  [key: string]: IBlockDTO}) {
-        const res =  Object.entries(value).map(([key, value])=> {
-            return [key, new BlockDTO(value)]
-        })
-       return Object.fromEntries(res)
-    }
+    // updateValue(value: IBlockMapDTO) {
+    //     const res =  Object.entries(value).map(([key, value])=> {
+    //         return [key, new BlockDTO(value)]
+    //     })
+    //    return Object.fromEntries(res)
+    // }
+
 }
 
 

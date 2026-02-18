@@ -4,11 +4,11 @@ import {
     IOperationPresenter
 } from "./interfaces/IOperationPresenter";
 import {
-    IBlockMapDTO
-} from "domains/src/dtos/interfaces/IBlockDTO";
-import {
     IOperation
 } from "domains/src/aggregates/interface/IOperationRequest";
+import {
+    IBlockMapDTO
+} from "domains/src/dtos/interfaces/IBlock";
 
 export default class OperationPresenter implements IOperationPresenter {
     operationUseCase: IOperationUseCase

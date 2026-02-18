@@ -1,48 +1,63 @@
 import {
-    BlockTreeVM
-} from "../../../vms/BlockVM";
-import {
-    BlockComponent
-} from "../../../components/block/BlockComponent";
-import {
-    useState,
-    useTransition
+    startTransition
 } from "react";
 import {
-    KeyBoardEvent,
-    updateBlock
+    Block
+} from "../../../components/block/Block";
+import {
+    createUpdateBlockOperation,
 } from "../../../actions/block-actions";
 import {
-    useParams
-} from "next/navigation";
+    useBlockEditor
+} from "../../../hooks/useBlockEditor";
+import {
+    getBlockTreeVM
+} from "../../../utils/object-parse";
 
 
-export default async function Page(){
-    const {spaceId} = useParams<{spaceId: string}>()
+interface BlockEditorProps {
+    spaceId: string;
+    userId: string;
+}
 
-    const [blockTree, setBlockTree] = useState<BlockTreeVM>({value: {}})
-    const [isPending, startTransition] = useTransition()
+export default async function BlockList({spaceId, userId}: BlockEditorProps){
+    // const {spaceId} = useParams<{spaceId: string}>()
 
-    const handleEvent = (event: KeyBoardEvent, id: string) => startTransition(async () => {
-        const updatedBlock = await updateBlock(spaceId, event, id)
-        if (updatedBlock) {
-            setBlockTree((prevPosts) => {
-                return {
-                    value: {
-                        ...prevPosts.value,
-                        [updatedBlock.id]: updatedBlock
-                    }
-                }
-            })
+    // const [blockTree, setBlockTree] = useState<BlockTreeVM>({value: {}})
+    // const [isPending, startTransition] = useTransition()
+
+    const {blocks, isLoading, executeOperation} = useBlockEditor(spaceId)
+
+    const handleCreateBlock = (blockId: string, field: string, value: any) => startTransition(async () => {
+        const operation = await createUpdateBlockOperation(spaceId, value, blockId)
+        if (operation) {
+            await executeOperation(operation)
+            // setBlockTree((prevPosts) => {
+            //     return {
+            //         value: {
+            //             ...prevPosts.value,
+            //             [operation.id]: operation
+            //         }
+            //     }
+            // })
         }
     })
 
+    const handleUpdateBlock = async (blockId: string, field: string, value: any) => {
+        const operation = await createUpdateBlockOperation(blockId, field, value)
+
+        await executeOperation(operation)
+    }
+
+    if(isLoading) return <div>Loading...</div>
+
+    const blockArray = Object.values(blocks)
 
     return (
-        <div className="editor-container bg-zinc-800">
-            {!isPending && Object.entries(blockTree).map(([key, value]) => {
+        <div className="editor-container bg-zinc-800 max-w-4xl mx-auto py-8">
+            {blockArray.map((block) => {
                 return (
-                    <BlockComponent block={value} key={key} updateEvent={handleEvent}/>
+                    <Block block={getBlockTreeVM(block)} key={block.id} onUpdate={handleUpdateBlock}/>
                 )
             })
             }
