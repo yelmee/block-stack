@@ -2,19 +2,19 @@ import {
     EntityTable
 } from "dexie";
 import {
-    IIndexDBRepository
-} from "domains/src/repositories/interfaces/IIndexDBRepository";
-import IndexedDB
-    from "../../infrastructures/IndexedDB";
-import {
-    IBlockMapDTO
-} from "domains/src/dtos/interfaces/IBlockDTO";
-import {
     IOperation
 } from "domains/src/aggregates/interface/IOperationRequest";
+import {
+    IBlockRepository
+} from "domains/src/repositories/interfaces/IBlockRepository";
+import {
+    IBlockMapDTO
+} from "domains/src/dtos/interfaces/IBlock";
+import IndexedDB
+    from "adapters/src/infrastructures/IndexedDB";
 
 
-export default class IndexDBRepository implements IIndexDBRepository {
+export default class IndexDBRepository implements IBlockRepository {
     db: IndexedDB
     operationTable: EntityTable<IOperation, 'pointer'>
     blocksTable: EntityTable<IBlockMapDTO, 'spaceId'>

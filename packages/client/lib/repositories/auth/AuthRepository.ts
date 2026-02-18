@@ -3,17 +3,17 @@ import INetworkAuthRepository
 import {
     IUserInfoVOParams
 } from "domains/src/vos/interfaces/IUserInfoVO";
-import ApiDB
-    from "../../infrastructures/ApiDB";
 import {
     SupabaseAuthClient
 } from "@supabase/supabase-js/src/lib/SupabaseAuthClient";
 import {
     IAuthDTO
 } from "domains/src/dtos/interfaces/IAuthDTO";
+import ApiDB
+    from "adapters/src/infrastructures/ApiDB";
 import {
     AuthDTO
-} from "../../dtos/AuthDTO";
+} from "adapters/src/dtos/AuthDTO";
 
 export default class AuthRepository implements INetworkAuthRepository {
     authDB: SupabaseAuthClient

@@ -1,7 +1,6 @@
 // hooks/useBlockEditor.ts
 import {
     useEffect,
-    useMemo,
     useState
 } from 'react';
 
@@ -13,24 +12,23 @@ import {
 } from "domains/src/useCases/BlockOperationService";
 
 import {
-    DI
-} from "../lib/di";
-import {
     IBlockMapDTO
 } from "domains/src/dtos/interfaces/IBlock";
+import BlockRepositoryFactory
+    from "domains/src/useCases/BlockRepositoryFactory";
 
 
 export function useBlockEditor(spaceId: string) {
-    const di = useMemo(() => DI, [])
     const [blocks, setBlocks] = useState<IBlockMapDTO>({});
     const [isLoading, setIsLoading] = useState(true);
     // const supabase = useSupabaseClient();
     // const indexDB = useIndexDB(); // 별도 구현 필요
 
-    const getBlocks = di.operation.getBlocks;
-    const getOperations = di.operation.getOperations;
-    const insertOperation = di.operation.insertOperationQueue;
-    const deleteOperation = di.operation.flushOperationQueue;
+    const repository = BlockRepositoryFactory.getRepository();
+    const getBlocks = repository.getBlocks;
+    const getOperations = repository.getOperations;
+    const insertOperation = repository.insertOperation;
+    const deleteOperation = repository.deleteOperation;
 
     // 초기 로드
     useEffect(() => {

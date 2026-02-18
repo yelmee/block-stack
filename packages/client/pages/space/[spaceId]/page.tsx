@@ -5,14 +5,14 @@ import {
     Block
 } from "../../../components/block/Block";
 import {
-    createUpdateBlockOperation,
-} from "../../../actions/block-actions";
-import {
     useBlockEditor
 } from "../../../hooks/useBlockEditor";
 import {
     getBlockTreeVM
 } from "../../../utils/object-parse";
+import {
+    createUpdateBlockOperation
+} from "../../../lib/operations/blockOperations";
 
 
 interface BlockEditorProps {

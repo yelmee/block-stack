@@ -1,6 +1,4 @@
 import {
-} from "adapters/src/presenters/interfaces/IAuthPresenter";
-import {
     IUserInfoVOParams
 } from "../../vos/interfaces/IUserInfoVO";
 import {
@@ -13,5 +11,4 @@ export default interface INetworkAuthRepository{
     signUp(user: IUserInfoVOParams): Promise<IAuthDTO>
     signIn(user: IUserInfoVOParams): Promise<boolean>
     signOut(): Promise<boolean>
-
 }

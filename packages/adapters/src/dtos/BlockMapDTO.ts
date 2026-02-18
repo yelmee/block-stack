@@ -36,7 +36,7 @@ export default class BlockMapDTO implements IBlockMapDTO{
 
     constructor(params: IBlockMapDTO) {
          Object.entries(params).map(([key, value])=> {
-             this[key] = new BlockDTO(value)
+             this[key] = new BlockDTO(value as IBlock)
         })
     }
 

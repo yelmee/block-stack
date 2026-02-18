@@ -1,7 +1,3 @@
-import INetworkOperationRepository
-    from "domains/src/repositories/interfaces/INetworkOperationRepository";
-import ApiDB
-    from "../../infrastructures/ApiDB";
 import {
     IOperation
 } from "domains/src/aggregates/interface/IOperationRequest";
@@ -12,9 +8,13 @@ import {
     Database
 } from "client/database.types";
 import {
-    IBlockDTO,
+    IBlockRepository
+} from "domains/src/repositories/interfaces/IBlockRepository";
+import {
     IBlockMapDTO
-} from "domains/src/dtos/interfaces/IBlockDTO";
+} from "domains/src/dtos/interfaces/IBlock";
+import ApiDB
+    from "adapters/src/infrastructures/ApiDB";
 
 
 type Schema = Database['public']
@@ -22,7 +22,7 @@ type FnName = string & keyof Schema['Functions']
 type Fn<T extends FnName> =  Schema['Functions'][T]
 type ARGS<T extends FnName>=  Fn<T>['Args']
 
-export default class NetworkRepository implements INetworkOperationRepository {
+export default class NetworkRepository implements IBlockRepository {
     private apiDB: ApiDB
 
     constructor(db: ApiDB) {
@@ -41,33 +41,37 @@ export default class NetworkRepository implements INetworkOperationRepository {
                 return data
             }})
     }
-    async getBlock(spaceId: string, blockId: string): Promise<IBlockDTO>{
-        const data =  await this.getBlocks(spaceId)
-        if (data) {
-            return data.value[blockId] as IBlockDTO
-        }else {
-            return {}  as IBlockDTO
-        }
-    }
 
-    async getBlocks(spaceId: string): Promise<IBlockMapDTO>{
+    async getBlocks(spaceId: string): Promise<IBlockMapDTO|{}>{
         const {data} =  await this.rpc({fn: "apply_operation", args: {s_id: spaceId}})
         if (data) {
-            return {spaceId: spaceId, value: data.value}  as IBlockMapDTO
+            return {value: data.value}  as IBlockMapDTO
         }else {
-            return {spaceId: spaceId, value: {}}  as IBlockMapDTO
+            return {}
         }
     }
 
-    async updateOperation(spaceId: string, operation: IOperation[]): Promise<IBlockMapDTO> {
+    async updateOperation(spaceId: string, operation: IOperation[]): Promise<IBlockMapDTO | {}>{
         const {data} =  await this.rpc({
             fn: "handle_operation",
             args: {op: operation as Record<any, any>}
         })
         if (data) {
-            return {spaceId: spaceId, value: data.value}  as IBlockMapDTO
+            return { value: data.value}  as IBlockMapDTO
         }else {
-            return {spaceId: spaceId, value: {}}  as IBlockMapDTO
+            return {}
         }
+    }
+
+    deleteOperation(spaceId: string, operation: IOperation): Promise<void> {
+        return Promise.resolve(undefined);
+    }
+
+    getOperations(spaceId: string): Promise<IOperation[]> {
+        return Promise.resolve([]);
+    }
+
+    insertOperation(spaceId: string, operation: IOperation): Promise<string> {
+        return Promise.resolve("");
     }
 };

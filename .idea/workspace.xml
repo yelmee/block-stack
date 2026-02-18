@@ -4,103 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fd221c6-5397-426a-a1fd-2d5fcace444d" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/adapters/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/adapters/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/adapters/src/dtos/AuthDTO.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/adapters/src/dtos/BlockDTO.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/adapters/src/infrastructures/ApiDB.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/adapters/src/infrastructures/IndexedDB.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/adapters/src/infrastructures/interfaces/IInfrastructures.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/adapters/src/presenters/AuthPresenter.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/adapters/src/presenters/OperationPresenter.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/adapters/src/presenters/interfaces/IAuthPresenter.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/adapters/src/presenters/interfaces/IOperationPresenter.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/adapters/src/presenters/interfaces/IPresenters.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/adapters/src/repositories/auth/NetworkAuthRepository.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/adapters/src/repositories/operation/IndexDBRepository.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/adapters/src/repositories/operation/NetworkRepository.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/domains/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/domains/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/domains/src/aggregates/Operation.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/domains/src/aggregates/interface/IOperation.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/domains/src/dtos/interfaces/IAuthDTO.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/domains/src/dtos/interfaces/IBlockDTO.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/domains/src/entities/Block.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/domains/src/entities/User.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/domains/src/entities/interfaces/IBlock.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/domains/src/entities/interfaces/IUser.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/domains/src/repositories/interfaces/IIndexDBRepository.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/domains/src/repositories/interfaces/INetworkAuthRepository.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/domains/src/repositories/interfaces/INetworkOperationRepository.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/domains/src/repositories/interfaces/IRepositories.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/domains/src/useCases/AuthUseCase.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/domains/src/useCases/OperationUseCase.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/domains/src/useCases/interfaces/IAuthUseCase.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/domains/src/useCases/interfaces/IOperationUseCase.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/domains/src/vos/UserInfoVO.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/domains/src/vos/interfaces/IUserInfoVO.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/domains/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/components/DialogEditor.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/components/DrawerListItem.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/components/Forms.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/components/Icon.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/components/InputWithLabel.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/components/Modal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/components/Text.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/components/TextWithIcon.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/di/IUseCase.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/di/infrastructures.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/di/presenters.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/di/repositories.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/di/useCases.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/di/useDi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/globals.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/hooks/debounce.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/hooks/react-query.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/hooks/useAuth.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/hooks/useBlockTree.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/hooks/useBroadcast.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/hooks/useDialog.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/hooks/useModal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/pages/auth/sign-in/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/pages/auth/sign-up/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/pages/space/components/Block.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/pages/space/components/BlockTree.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/pages/space/error.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/pages/space/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/pages/space/loading.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/pages/space/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/store/createSelectors.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/utils/block.parser.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/utils/constants.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/utils/key-event.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/utils/query-helper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/utils/query-key.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/utils/synchronization.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/utils/transform.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/vms/BlockVM.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/app/vms/interfaces/IBlockVM.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/eslint.config.mjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/next-env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/next.config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/postcss.config.mjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/public/file.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/public/globe.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/public/next.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/public/vercel.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/public/window.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/my-app/tsconfig.json" afterDir="false" />
+    <list default="true" id="4fd221c6-5397-426a-a1fd-2d5fcace444d" name="변경" comment="fix: di, infrastructures, useCase, presenter, actions 제거">
+      <change afterPath="$PROJECT_DIR$/packages/client/__test__/BlockOperationService.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/client/lib/api/client.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/client/lib/operations/blockOperations.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/client/lib/utils/blockUtils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/client/vms/StatusVM.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/adapters/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/adapters/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/adapters/src/repositories/auth/AuthRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/lib/repositories/auth/AuthRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/adapters/src/repositories/operation/IndexDBRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/lib/repositories/operation/IndexDBRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/adapters/src/repositories/operation/MockBlockRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/lib/repositories/operation/MockBlockRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/adapters/src/repositories/operation/NetworkRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/lib/repositories/operation/NetworkRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/client/hooks/useBlockEditor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/hooks/useBlockEditor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/client/pages/space/[spaceId]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/pages/space/[spaceId]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/client/utils/object-parse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/utils/object-parse.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/domains/src/repositories/interfaces/IBlockRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/domains/src/repositories/interfaces/IBlockRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/domains/src/repositories/interfaces/INetworkAuthRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/domains/src/repositories/interfaces/INetworkAuthRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/domains/src/repositories/interfaces/INetworkOperationRepository.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/domains/src/repositories/interfaces/IRepositories.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/domains/src/useCases/BlockRepositoryFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/domains/src/useCases/BlockRepositoryFactory.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,8 +35,14 @@
       <option value="directory" />
     </option>
   </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="origin/main" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -134,7 +63,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "code.cleanup.on.save": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/yelm/Documents/project/block-stack/packages/domains/src",
+    "last_opened_file_path": "/Users/yelm/Documents/project/block-stack/packages/client/lib",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.stylelint": "true",
@@ -144,6 +73,10 @@
     "node.js.selected.package.stylelint": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "npm.client > build.executor": "Run",
+    "npm.client > db-starts.executor": "Run",
+    "npm.client > dev.executor": "Run",
+    "npm.client > lint.executor": "Run",
     "settings.editor.selected.configurable": "actions.on.save",
     "ts.external.directory.path": "/Users/yelm/Documents/project/block-stack/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
@@ -167,24 +100,25 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/packages/domains/src" />
-      <recent name="$PROJECT_DIR$/packages/adapters/src/infrastructures/interfaces" />
-      <recent name="$PROJECT_DIR$/packages/domains/src/repositories/interfaces" />
-      <recent name="$PROJECT_DIR$/packages/adapters" />
-      <recent name="$PROJECT_DIR$/packages/my-app/app/pages/auth/sign-up" />
+      <recent name="$PROJECT_DIR$/packages/client/lib" />
+      <recent name="$PROJECT_DIR$/packages/client/vms" />
+      <recent name="$PROJECT_DIR$/packages/client/utils" />
+      <recent name="$PROJECT_DIR$/packages/client/pages/api/space" />
+      <recent name="$PROJECT_DIR$/packages/client" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/packages/domains/src/aggregates/interface" />
-      <recent name="$PROJECT_DIR$/packages/my-app/app/components" />
-      <recent name="$PROJECT_DIR$/packages/my-app/app/pages/space/components" />
-      <recent name="$PROJECT_DIR$/packages/my-app/app/components/molecules" />
-      <recent name="$PROJECT_DIR$/packages/my-app/app/pages/dashboard" />
+      <recent name="$PROJECT_DIR$/packages/client/actions" />
+      <recent name="$PROJECT_DIR$/packages/client/components/ui" />
+      <recent name="$PROJECT_DIR$/packages/client/pages/api" />
+      <recent name="$PROJECT_DIR$/packages/client/components/block" />
+      <recent name="$PROJECT_DIR$/packages/client/utils" />
     </key>
   </component>
   <component name="RunAnythingCache">
     <myKeys>
       <visibility group="Grunt" flag="true" />
       <visibility group="Gulp" flag="true" />
+      <visibility group="HTTP Requests" flag="true" />
       <visibility group="HTTP 요청" flag="true" />
       <visibility group="Node.js" flag="true" />
       <visibility group="npm" flag="true" />
@@ -192,6 +126,56 @@
       <visibility group="실행 구성" flag="true" />
       <visibility group="최근 프로젝트" flag="true" />
     </myKeys>
+  </component>
+  <component name="RunManager" selected="npm.client &gt; build">
+    <configuration name="client &gt; build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/client/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="client &gt; db-starts" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/client/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="db-starts" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="client &gt; dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/client/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="client &gt; lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/client/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.client &gt; build" />
+        <item itemvalue="npm.client &gt; dev" />
+        <item itemvalue="npm.client &gt; lint" />
+        <item itemvalue="npm.client &gt; db-starts" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -231,8 +215,177 @@
       <workItem from="1753083939811" duration="69356000" />
       <workItem from="1753708868632" duration="1293000" />
       <workItem from="1753757954226" duration="11596000" />
-      <workItem from="1753776765805" duration="16647000" />
+      <workItem from="1753776765805" duration="69863000" />
+      <workItem from="1754208405534" duration="631000" />
+      <workItem from="1754224774646" duration="442000" />
+      <workItem from="1754225225672" duration="143000" />
+      <workItem from="1754287111800" duration="14430000" />
+      <workItem from="1754378564778" duration="9263000" />
+      <workItem from="1754472237021" duration="9297000" />
+      <workItem from="1754545675218" duration="43291000" />
+      <workItem from="1754979819563" duration="67000" />
+      <workItem from="1758364892107" duration="108000" />
+      <workItem from="1758952417004" duration="18000" />
+      <workItem from="1768705379787" duration="14790000" />
+      <workItem from="1769596780541" duration="1091000" />
+      <workItem from="1769930661424" duration="4055000" />
+      <workItem from="1770645019753" duration="9520000" />
+      <workItem from="1771227525002" duration="9212000" />
+      <workItem from="1771385000611" duration="10116000" />
     </task>
+    <task id="LOCAL-00001" summary="add domains folder">
+      <option name="closed" value="true" />
+      <created>1753938358015</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1753938358015</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add adapters folder">
+      <option name="closed" value="true" />
+      <created>1753938372684</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1753938372684</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add client folder">
+      <option name="closed" value="true" />
+      <created>1753938410890</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1753938410890</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add top folder">
+      <option name="closed" value="true" />
+      <created>1753938525284</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1753938525284</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update dto type Temporarily">
+      <option name="closed" value="true" />
+      <created>1754897888525</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1754897888525</updated>
+    </task>
+    <task id="LOCAL-00006" summary="update entities type Temporarily">
+      <option name="closed" value="true" />
+      <created>1754897933041</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1754897933041</updated>
+    </task>
+    <task id="LOCAL-00007" summary="update entities type Temporarily">
+      <option name="closed" value="true" />
+      <created>1754897990002</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1754897990002</updated>
+    </task>
+    <task id="LOCAL-00008" summary="refactor client code for nextjs">
+      <option name="closed" value="true" />
+      <created>1754898025668</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1754898025668</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat: mock data repo 추가">
+      <option name="closed" value="true" />
+      <created>1771386936522</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1771386936523</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix: block dto, adapter type 변경">
+      <option name="closed" value="true" />
+      <created>1771388652320</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1771388652320</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix: package, import 버그 수정">
+      <option name="closed" value="true" />
+      <created>1771388711302</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1771388711302</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix: useCase -&gt; service, factory 구조로 변경">
+      <option name="closed" value="true" />
+      <created>1771389137171</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1771389137171</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix: block dto, adapter type 변경">
+      <option name="closed" value="true" />
+      <created>1771389258493</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1771389258493</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fix: block dto, adapter type 변경">
+      <option name="closed" value="true" />
+      <created>1771389730722</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1771389730722</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fix: Block 컴포넌트 이벤트 핸들러 추가">
+      <option name="closed" value="true" />
+      <created>1771389773835</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1771389773835</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fix: block dto, adapter type 변경">
+      <option name="closed" value="true" />
+      <created>1771389913189</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1771389913189</updated>
+    </task>
+    <task id="LOCAL-00017" summary="fix: Block 컴포넌트 event handler 추가">
+      <option name="closed" value="true" />
+      <created>1771389974393</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1771389974393</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fix: di, infrastructures, useCase, presenter, actions 제거">
+      <option name="closed" value="true" />
+      <created>1771410299421</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1771410299421</updated>
+    </task>
+    <task id="LOCAL-00019" summary="fix: di, infrastructures, useCase, presenter, actions 제거">
+      <option name="closed" value="true" />
+      <created>1771410317647</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1771410317647</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,6 +406,37 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
+    <MESSAGE value="add domains folder" />
+    <MESSAGE value="add adapters folder" />
+    <MESSAGE value="add client folder" />
+    <MESSAGE value="add top folder" />
+    <MESSAGE value="update dto type Temporarily" />
+    <MESSAGE value="update entities type Temporarily" />
+    <MESSAGE value="refactor client code for nextjs" />
+    <MESSAGE value="feat: mock data repo 추가" />
+    <MESSAGE value="fix: package, import 버그 수정" />
+    <MESSAGE value="fix: useCase -&gt; service, factory 구조로 변경" />
+    <MESSAGE value="fix: Block 컴포넌트 이벤트 핸들러 추가" />
+    <MESSAGE value="fix: block dto, adapter type 변경" />
+    <MESSAGE value="fix: Block 컴포넌트 event handler 추가" />
+    <MESSAGE value="fix: di, infrastructures, useCase, presenter, actions 제거" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: di, infrastructures, useCase, presenter, actions 제거" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/client/actions/operations.ts</url>
+          <line>8</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/client/vms/BlockVM.ts</url>
+          <line>20</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

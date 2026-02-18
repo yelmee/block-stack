@@ -1,16 +1,16 @@
 
-export default interface IBlock {
-  readonly id: string
-  readonly type: string
-  // readonly properties: string
-  properties: Record<string, any>  // instead of string
-  order: number
-  readonly content: string[]
-  readonly parent_id: string;
-  readonly space_id: string;
-  readonly last_updated: Date;
-  readonly last_modified: Date;
-  readonly created_time: Date
-  readonly created_by_id: string
-}
-
+// export default interface IBlock {
+//   readonly id: string
+//   readonly type: string
+//   // readonly properties: string
+//   properties: Record<string, any>  // instead of string
+//   order: number
+//   readonly content: string[]
+//   readonly parent_id: string;
+//   readonly space_id: string;
+//   readonly last_updated: Date;
+//   readonly last_modified: Date;
+//   readonly created_time: Date
+//   readonly created_by_id: string
+// }
+//

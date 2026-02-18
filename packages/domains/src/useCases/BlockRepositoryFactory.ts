@@ -1,10 +1,10 @@
 import {
     IBlockRepository
 } from "../repositories/interfaces/IBlockRepository";
-
 import {
     MockBlockRepository
-} from "adapters/src/repositories/operation/MockBlockRepository";
+} from "client/lib/repositories/operation/MockBlockRepository";
+
 
 type RepositoryType = "supabase" | "indexeddb" | "mock"
 
