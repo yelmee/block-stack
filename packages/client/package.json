@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -19,7 +19,7 @@
     "@t3-oss/env-nextjs": "^0.13.8",
     "@tanstack/react-query": "^5.84.2",
     "@tanstack/react-query-devtools": "^5.66.0",
-    "adapters": "^1.0.1",
+    "adapters": "^1.0.0",
     "axios": "^1.7.9",
     "dexie": "^4.0.11",
     "dexie-react-hooks": "^1.1.7",
