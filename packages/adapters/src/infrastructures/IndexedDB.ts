@@ -3,14 +3,14 @@ import Dexie, {
 } from "dexie";
 import Operation
     from "domains/src/aggregates/Operation";
-import {
-    IBlockMapDTO
-} from "domains/src/dtos/interfaces/IBlockDTO";
 import BlockMapDTO
     from "../dtos/BlockMapDTO";
 import {
     IOperation
 } from "domains/src/aggregates/interface/IOperationRequest";
+import {
+    IBlockMapDTO
+} from "domains/src/dtos/interfaces/IBlock";
 
 export default class IndexedDB extends Dexie{
     operations!: EntityTable<IOperation, 'pointer'>

@@ -3,7 +3,7 @@ import {
 } from "../../aggregates/interface/IOperationRequest";
 import {
   IBlockMapDTO
-} from "../../dtos/interfaces/IBlockDTO";
+} from "../../dtos/interfaces/IBlock";
 
 
 export default interface IOperationUseCase {

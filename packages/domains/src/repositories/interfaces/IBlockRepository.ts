@@ -1,6 +1,6 @@
 import {
     IBlockMapDTO
-} from "../../dtos/interfaces/IBlockDTO";
+} from "../../dtos/interfaces/IBlock";
 import {
     IOperation,
 } from "../../aggregates/interface/IOperationRequest";

@@ -2,10 +2,10 @@ import {
     BlockVM
 } from "../vms/BlockVM";
 import {
-    IBlockMapDTO
-} from "domains/src/dtos/interfaces/IBlockDTO";
+    IBlock,
+} from "domains/src/dtos/interfaces/IBlock";
 
-const getBlockTreeVM = (value: IBlockMapDTO) => {
+const getBlockTreeVM = (value: IBlock) => {
     const res =  Object.entries(value).map(([key, value])=> {
         return [key, new BlockVM(value)]
     })
