@@ -1,6 +1,7 @@
 import {
     startTransition
 } from "react";
+import '../../../globals.css'
 import {
     Block
 } from "../../../components/block/Block";
