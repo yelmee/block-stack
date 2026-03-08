@@ -1,6 +1,6 @@
 
 
-export type ICommand = 'insert' | 'update' | 'remove'
+export type ICommand = 'insert' | 'update' | 'remove' | 'rollback'
 export interface IOperation {
     command: ICommand
     pointer: IPointer

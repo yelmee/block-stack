@@ -7,12 +7,15 @@ import {
 } from "../aggregates/interface/IOperationRequest";
 
 class BlockOperationService {
+
     applyOperation(
         blocks: IBlockMapDTO,
         operation: IOperation
     ): IBlockMapDTO {
         const { command, pointer, path, arg } = operation;
         const blockId = pointer;
+
+        const oldBlock = blocks[blockId] || null;
 
         switch (command) {
             case 'insert':
@@ -33,6 +36,9 @@ class BlockOperationService {
             case 'remove':
                 const {  [blockId]: removed, ...rest}= blocks;
                 return {...rest};
+
+            case 'rollback':
+                return {...blocks,  [blockId]: oldBlock};
 
             default:
                 return blocks;
