@@ -13,8 +13,8 @@ import {
 
 export class MockBlockRepository implements IBlockRepository{
 
-    private blocks: IBlockMapDTO = {};
-    private operations: Map<string, IOperation[]> = new Map()
+     blocks: IBlockMapDTO = {...MOCK_BLOCKS};
+     operations: Map<string, IOperation[]> = new Map()
 
     deleteOperation(spaceId: string, operation: IOperation): Promise<void> {
         const ops = this.operations.get(spaceId) || []
@@ -24,12 +24,12 @@ export class MockBlockRepository implements IBlockRepository{
         return Promise.resolve();
     }
 
-    getBlocks(spaceId: string): Promise<IBlockMapDTO> {
-        return Promise.resolve({...this.blocks});
+    getBlocks = async (spaceId: string):Promise<IBlockMapDTO> => {
+        return Promise.resolve({...this?.blocks});
     }
 
     getOperations(spaceId: string): Promise<IOperation[]> {
-        const ops = this.operations.get(spaceId) || []
+        const ops = this?.operations.get(spaceId) || []
 
         return Promise.resolve([...ops]);
     }
@@ -48,5 +48,3 @@ export class MockBlockRepository implements IBlockRepository{
         this.operations.clear()
     }
 }
-
-export const mockBlockRepository = new MockBlockRepository();

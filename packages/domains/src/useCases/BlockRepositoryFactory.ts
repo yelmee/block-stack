@@ -8,10 +8,10 @@ import {
 
 type RepositoryType = "supabase" | "indexeddb" | "mock"
 
-export default class BlockRepositoryFactory {
+ class BlockRepositoryFactory {
     private static repository: IBlockRepository | null = null
     private static currentType : RepositoryType = 'mock'
-    isOnline: boolean = false
+    // isOnline: boolean = false
 
     static getRepository(): IBlockRepository{
         if(!this.repository){
@@ -27,14 +27,15 @@ export default class BlockRepositoryFactory {
 
     private static createRepository(): IBlockRepository {
         switch (this.currentType) {
-            case "indexeddb":
-                // return new IndexedDBBlockRepository()
-            case "supabase":
-                // return new SupabaseBlockRepository()
+            // case "indexeddb":
+            //     // return new IndexedDBBlockRepository()
+            // case "supabase":
+            //     // return new SupabaseBlockRepository()
             case "mock":
-                return new MockBlockRepository()
+               return this.repository =  new MockBlockRepository()
              default:
-                return new MockBlockRepository()
+                 return this.repository =  new MockBlockRepository()
         }
     }
 }
+export default BlockRepositoryFactory;
