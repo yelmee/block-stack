@@ -1,5 +1,7 @@
 import {
-    startTransition
+    startTransition,
+    useEffect,
+    useRef
 } from "react";
 import '../../../globals.css'
 import {
@@ -9,9 +11,8 @@ import {
     useBlockEditor
 } from "../../../hooks/useBlockEditor";
 import {
-    getBlockTreeVM
-} from "../../../utils/object-parse";
-import {
+    createInsertBlockOperation,
+    createRemoveBlockOperation,
     createUpdateBlockOperation
 } from "../../../lib/operations/blockOperations";
 
@@ -21,27 +22,34 @@ interface BlockEditorProps {
     userId: string;
 }
 
-export default async function BlockList({spaceId, userId}: BlockEditorProps){
-    // const {spaceId} = useParams<{spaceId: string}>()
+export default  function Index({spaceId, userId}: BlockEditorProps){
 
-    // const [blockTree, setBlockTree] = useState<BlockTreeVM>({value: {}})
-    // const [isPending, startTransition] = useTransition()
+    const {blocks, isLoading, executeOperation} = useBlockEditor(spaceId, userId)
 
-    const {blocks, isLoading, executeOperation} = useBlockEditor(spaceId)
+    const blockRefs = useRef<Map<string, HTMLDivElement>>(new Map())
 
-    const handleCreateBlock = (blockId: string, field: string, value: any) => startTransition(async () => {
-        const operation = await createUpdateBlockOperation(spaceId, value, blockId)
+    const handleCreateBlock = () => startTransition(async () => {
+        const operation = await createInsertBlockOperation({type: "text"}, spaceId)
         if (operation) {
             await executeOperation(operation)
-            // setBlockTree((prevPosts) => {
-            //     return {
-            //         value: {
-            //             ...prevPosts.value,
-            //             [operation.id]: operation
-            //         }
-            //     }
-            // })
         }
+
+        setTimeout(()=> {
+            const newBlockElement = blockRefs.current.get(operation.pointer)
+
+            if(!newBlockElement) return;
+            if(newBlockElement){
+                newBlockElement.focus()
+            }
+           const selection = window.getSelection()
+           const range = document.createRange()
+
+            range.selectNodeContents(newBlockElement)
+            range.collapse(true)
+            selection?.removeAllRanges()
+            selection?.addRange(range)
+
+        }, 0)
     })
 
     const handleUpdateBlock = async (blockId: string, field: string, value: any) => {
@@ -50,15 +58,89 @@ export default async function BlockList({spaceId, userId}: BlockEditorProps){
         await executeOperation(operation)
     }
 
-    if(isLoading) return <div>Loading...</div>
+    const handleDeleteBlock = (blockId: string, index: number) => startTransition(async () => {
+        const operation = await createRemoveBlockOperation(spaceId, blockId)
+        if (operation) {
+            await executeOperation(operation)
+        }
 
-    const blockArray = Object.values(blocks)
+        setTimeout(()=> {
+            if(!blocks) return;
+
+            const previousBlockId = blocks[index]?.id
+            const previousBlockElement = blockRefs.current.get(previousBlockId)
+
+            if(!previousBlockElement) return;
+            if(previousBlockElement){
+                previousBlockElement.focus()
+            }
+            const selection = window.getSelection()
+            const range = document.createRange()
+
+            range.selectNodeContents(previousBlockElement)
+            range.collapse(false)
+            selection?.removeAllRanges()
+            selection?.addRange(range)
+
+        }, 0)
+    })
+
+    const handleFocusPrevious = (blockId: string) => {
+        if(!blocks) return;
+
+        const index = Object.values(blocks).findIndex(item => item.id === blockId)
+
+        if(index === 0) return;
+        const prevBlockId = Object.values(blocks)[index - 1].id
+        const prevBlockElement = blockRefs.current.get(prevBlockId)
+
+        if(prevBlockElement){
+            prevBlockElement.focus()
+        }
+    }
+
+    const handleFocusNext = (blockId: string) => {
+        if(!blocks) return;
+
+        const index = Object.values(blocks).findIndex(item => item.id === blockId)
+
+        if(index >= Object.values(blocks).length - 1) return;
+        const nextBlockId = Object.values(blocks)[index + 1].id
+        const nextBlockElement = blockRefs.current.get(nextBlockId)
+
+        if(nextBlockElement){
+            nextBlockElement.focus()
+        }
+    }
+
+    useEffect(() => {
+        if(!blocks) return;
+        console.log(Object.values(blocks),'blocks')
+    }, [blocks]);
+
+    if(isLoading) return <div>Loading...</div>
 
     return (
         <div className="editor-container bg-zinc-800 max-w-4xl mx-auto py-8">
-            {blockArray.map((block) => {
+            {blocks && Object.values(blocks).map((block, index) => {
                 return (
-                    <Block block={getBlockTreeVM(block)} key={block.id} onUpdate={handleUpdateBlock}/>
+                    <Block
+                        onUpdate={(field, value)=>handleUpdateBlock(block.id, field, value)}
+                        onDelete={()=>handleDeleteBlock(block.id, index)}
+                        onFocusNext={()=>handleFocusNext(block.id)}
+                        onFocusPrevious={()=>handleFocusPrevious(block.id)}
+                        onCreate={handleCreateBlock}
+                        block={block}
+                        key={block.id}
+                        ref={(el)=>{
+                            if(el){
+                                blockRefs.current.set(block.id, el)
+                            }else{
+                                blockRefs.current.delete(block.id)
+                            }
+                        }
+                    }
+                            />
                 )
             })
             }
