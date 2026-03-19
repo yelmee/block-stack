@@ -1,12 +1,14 @@
-import {
+import React, {
     forwardRef,
     KeyboardEvent,
-    Ref,
+    useRef,
     useState
 } from 'react'; // type-only import 추천
 import {
     IBlock
 } from "domains/src/dtos/interfaces/IBlock";
+import CommandMenu
+    from "./CommandMenu";
 
 interface IProps {
     block: IBlock;
@@ -15,24 +17,65 @@ interface IProps {
     onDelete: () => void;
     onFocusPrevious: () => void;
     onFocusNext: () => void;
+    onUpdateBlockType: (value: any) => void;
 }
 
-export const Block = forwardRef(function ({block, onUpdate, onCreate, onDelete, onFocusPrevious, onFocusNext }:IProps, ref: Ref<HTMLDivElement> | undefined
-){
+export const Block = forwardRef<HTMLDivElement, IProps>(({block, onUpdate, onCreate, onDelete, onFocusPrevious, onFocusNext, onUpdateBlockType }, forwardedRef) => {
     const [content, setContent] = useState(block.content);
-    // // const inputRef = useRef<HTMLDivElement>(null);
+    const [searchQuery, setSearchQuery] = useState("");
+    // const [currentType, setCurrentType] = useState<BlockType>("text");
+    const [showCommandMenu, setShowCommandMenu] = useState(false);
+    const [commandMenuPosition, setCommandMenuPosition] = useState({top: 0, left: 0});
+    const localRef = useRef<HTMLDivElement>(null);
 
-    const handleInput = (event: any) => {
-        const text = event.currentTarget.textContent || '';
-        // setContent(text)
+    // Merge the forwarded ref with our local one
+    const ref = (node: HTMLDivElement | null) => {
+        (localRef as React.RefObject<HTMLDivElement | null>).current = node
+        if (typeof forwardedRef === 'function') {
+            forwardedRef(node)
+        } else if (forwardedRef) {
+            (forwardedRef as React.RefObject<HTMLDivElement | null>).current = node
+        }
+    }
+
+    const handleInput = (e: any) => {
+        const text = e.currentTarget.textContent || '';
+
+        if(text === '/' || text.endsWith(' /')){
+            e.preventDefault()
+            setShowCommandMenu(true)
+
+            const rect = localRef?.current?.getBoundingClientRect()
+            if(!rect) return;
+
+            setCommandMenuPosition({top: rect.top + window.scrollX, left: rect.left + window.scrollY})
+        } else if(showCommandMenu && text.includes('/')){
+            e.preventDefault()
+            const search = e.key.match('')
+            setSearchQuery(search)
+        } else {
+            // setShowCommandMenu(false)
+        }
         onUpdate('content', [text])
     }
 
+    const handleCommandMenu = (type: string) => {
+        if(showCommandMenu){
+            const newContent = content[0].replace(/\/[^/]*$/, '').trim()
+            setContent([newContent])
+            onUpdate(newContent, "")
+            onUpdateBlockType(type)
+            setShowCommandMenu(false)
+        }
+    }
+    
     const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>)=> {
         const text = e.currentTarget.textContent || '';
+        // const type = ""
 
         if(e.key === 'Enter') {
             e.preventDefault()
+            if(showCommandMenu) return;
             onCreate()
         }
 
@@ -41,20 +84,13 @@ export const Block = forwardRef(function ({block, onUpdate, onCreate, onDelete, 
             onDelete()
         }
 
-        console.log(e.key,'e.key')
         if (e.key === 'ArrowUp') {
-            console.log('arrowUp')
-            // const selection = window.getSelection()
-
-            // if(selection && selection.rangeCount )
-
             e.preventDefault()
             onFocusPrevious()
         }
 
         if (e.key === 'ArrowDown') {
             e.preventDefault()
-
             onFocusNext()
         }
     }
@@ -67,7 +103,7 @@ export const Block = forwardRef(function ({block, onUpdate, onCreate, onDelete, 
                 return 'text-2xl font-bold'
             case 'heading3':
                 return 'text-xl font-bold'
-            case 'code':
+            case 'text':
                 return 'font-mono bg-muted px-2 py-1 rounded'
             default:
                 return ''
@@ -78,6 +114,11 @@ export const Block = forwardRef(function ({block, onUpdate, onCreate, onDelete, 
     return (
         <div
             className="group relative py-1 px-2 hover:bg-muted/50 rounded flex">
+
+            {
+                showCommandMenu &&
+                <CommandMenu onSelect={handleCommandMenu} onClose={()=> setShowCommandMenu(false)} searchQuery={searchQuery} position={commandMenuPosition} />
+            }
                 {/* 드래그 핸들 (나중에 구현) */}
                 <span className="absolute left-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
                     <button

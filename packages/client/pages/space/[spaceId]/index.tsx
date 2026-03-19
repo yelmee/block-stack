@@ -28,8 +28,9 @@ export default  function Index({spaceId, userId}: BlockEditorProps){
 
     const blockRefs = useRef<Map<string, HTMLDivElement>>(new Map())
 
-    const handleCreateBlock = () => startTransition(async () => {
-        const operation = await createInsertBlockOperation({type: "text"}, spaceId)
+    const handleCreateBlock = (id: string) => startTransition(async () => {
+        const newId = Number(id.split('-')[1]) + 1
+        const operation = await createInsertBlockOperation({type: "text", id: `block-${newId}`}, spaceId)
         if (operation) {
             await executeOperation(operation)
         }
@@ -125,16 +126,17 @@ export default  function Index({spaceId, userId}: BlockEditorProps){
             {blocks && Object.values(blocks).map((block, index) => {
                 return (
                     <Block
+                        onUpdateBlockType={(type)=> handleUpdateBlock(block.id, "type", type)}
                         onUpdate={(field, value)=>handleUpdateBlock(block.id, field, value)}
                         onDelete={()=>handleDeleteBlock(block.id, index)}
                         onFocusNext={()=>handleFocusNext(block.id)}
                         onFocusPrevious={()=>handleFocusPrevious(block.id)}
-                        onCreate={handleCreateBlock}
+                        onCreate={()=>handleCreateBlock(block.id)}
                         block={block}
                         key={block.id}
                         ref={(el)=>{
                             if(el){
-                                blockRefs.current.set(block.id, el)
+                                blockRefs.current.set(block.id, el as HTMLDivElement)
                             }else{
                                 blockRefs.current.delete(block.id)
                             }
