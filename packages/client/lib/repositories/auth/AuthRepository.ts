@@ -3,9 +3,9 @@ import INetworkAuthRepository
 import {
     IUserInfoVOParams
 } from "domains/src/vos/interfaces/IUserInfoVO";
-import {
-    SupabaseAuthClient
-} from "@supabase/supabase-js/src/lib/SupabaseAuthClient";
+// import {
+//     SupabaseAuthClient
+// } from "@supabase/supabase-js/src/lib/SupabaseAuthClient";
 import {
     IAuthDTO
 } from "domains/src/dtos/interfaces/IAuthDTO";
@@ -16,7 +16,7 @@ import {
 } from "adapters/src/dtos/AuthDTO";
 
 export default class AuthRepository implements INetworkAuthRepository {
-    authDB: SupabaseAuthClient
+    authDB: any
 
     constructor(db: ApiDB) {
         this.authDB = db.auth

@@ -4,26 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fd221c6-5397-426a-a1fd-2d5fcace444d" name="변경" comment="fix: di, infrastructures, useCase, presenter, actions 제거">
-      <change afterPath="$PROJECT_DIR$/packages/client/__test__/BlockOperationService.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/client/lib/api/client.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/client/lib/operations/blockOperations.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/client/lib/utils/blockUtils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/client/vms/StatusVM.ts" afterDir="false" />
+    <list default="true" id="4fd221c6-5397-426a-a1fd-2d5fcace444d" name="변경" comment="fix: ㅣ">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/adapters/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/adapters/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/adapters/src/repositories/auth/AuthRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/lib/repositories/auth/AuthRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/adapters/src/repositories/operation/IndexDBRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/lib/repositories/operation/IndexDBRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/adapters/src/repositories/operation/MockBlockRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/lib/repositories/operation/MockBlockRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/adapters/src/repositories/operation/NetworkRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/lib/repositories/operation/NetworkRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/client/hooks/useBlockEditor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/hooks/useBlockEditor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/client/pages/space/[spaceId]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/pages/space/[spaceId]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/client/utils/object-parse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/utils/object-parse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/domains/src/repositories/interfaces/IBlockRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/domains/src/repositories/interfaces/IBlockRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/domains/src/repositories/interfaces/INetworkAuthRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/domains/src/repositories/interfaces/INetworkAuthRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/domains/src/repositories/interfaces/INetworkOperationRepository.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/domains/src/repositories/interfaces/IRepositories.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/domains/src/useCases/BlockRepositoryFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/domains/src/useCases/BlockRepositoryFactory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/adapters/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/adapters/src/dtos/BlockMapDTO.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/adapters/src/dtos/BlockMapDTO.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/client/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/client/lib/repositories/auth/AuthRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/lib/repositories/auth/AuthRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/client/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/next.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/client/pages/(auth)/sign-in/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/pages/(auth)/sign-in/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/client/pages/(auth)/sign-up/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/pages/(auth)/sign-up/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/client/pages/space/[spaceId]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/pages/space/[spaceId]/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/domains/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/domains/src/dtos/interfaces/IBlock.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/domains/src/dtos/interfaces/IBlock.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,37 +51,37 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "code.cleanup.on.save": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/yelm/Documents/project/block-stack/packages/client/lib",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.stylelint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.stylelint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.client > build.executor": "Run",
-    "npm.client > db-starts.executor": "Run",
-    "npm.client > dev.executor": "Run",
-    "npm.client > lint.executor": "Run",
-    "settings.editor.selected.configurable": "actions.on.save",
-    "ts.external.directory.path": "/Users/yelm/Documents/project/block-stack/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/yelm/Documents/project/block-stack/packages/client/lib&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.client &gt; build.executor&quot;: &quot;Run&quot;,
+    &quot;npm.client &gt; db-starts.executor&quot;: &quot;Run&quot;,
+    &quot;npm.client &gt; dev.executor&quot;: &quot;Run&quot;,
+    &quot;npm.client &gt; lint.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/yelm/Documents/project/block-stack/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "GitStage.ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
+  &quot;keyToStringList&quot;: {
+    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -127,7 +120,7 @@
       <visibility group="최근 프로젝트" flag="true" />
     </myKeys>
   </component>
-  <component name="RunManager" selected="npm.client &gt; build">
+  <component name="RunManager" selected="npm.client &gt; dev">
     <configuration name="client &gt; build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/packages/client/package.json" />
       <command value="run" />
@@ -170,8 +163,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.client &gt; build" />
         <item itemvalue="npm.client &gt; dev" />
+        <item itemvalue="npm.client &gt; build" />
         <item itemvalue="npm.client &gt; lint" />
         <item itemvalue="npm.client &gt; db-starts" />
       </list>
@@ -231,7 +224,17 @@
       <workItem from="1769930661424" duration="4055000" />
       <workItem from="1770645019753" duration="9520000" />
       <workItem from="1771227525002" duration="9212000" />
-      <workItem from="1771385000611" duration="10116000" />
+      <workItem from="1771385000611" duration="13185000" />
+      <workItem from="1771732860458" duration="5213000" />
+      <workItem from="1772423086878" duration="8106000" />
+      <workItem from="1772881274377" duration="6457000" />
+      <workItem from="1772932516966" duration="18870000" />
+      <workItem from="1773555178521" duration="1566000" />
+      <workItem from="1773573035461" duration="3222000" />
+      <workItem from="1773925710222" duration="3033000" />
+      <workItem from="1774242796975" duration="7264000" />
+      <workItem from="1774446972796" duration="821000" />
+      <workItem from="1774447811078" duration="14000" />
     </task>
     <task id="LOCAL-00001" summary="add domains folder">
       <option name="closed" value="true" />
@@ -385,7 +388,87 @@
       <option name="project" value="LOCAL" />
       <updated>1771410317647</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="fix: repository, blockOperation client로 이동">
+      <option name="closed" value="true" />
+      <created>1771416636955</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1771416636955</updated>
+    </task>
+    <task id="LOCAL-00021" summary="fix: transition, 실시간 동기화, di 제거">
+      <option name="closed" value="true" />
+      <created>1772960783515</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1772960783515</updated>
+    </task>
+    <task id="LOCAL-00022" summary="fix: tailwinds 연동">
+      <option name="closed" value="true" />
+      <created>1772960882458</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1772960882458</updated>
+    </task>
+    <task id="LOCAL-00023" summary="fix: DI 컨테이너에서 MockBlockRepository 인스턴스 할당으로 변경">
+      <option name="closed" value="true" />
+      <created>1772961123979</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1772961123979</updated>
+    </task>
+    <task id="LOCAL-00024" summary="fix: DI 컨테이너에서 MockBlockRepository 인스턴스 할당으로 변경">
+      <option name="closed" value="true" />
+      <created>1772961190289</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1772961190289</updated>
+    </task>
+    <task id="LOCAL-00025" summary="fix: rollback command 추가">
+      <option name="closed" value="true" />
+      <created>1772961279244</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1772961279244</updated>
+    </task>
+    <task id="LOCAL-00026" summary="fix: block keyboard event 추가">
+      <option name="closed" value="true" />
+      <created>1772961439461</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1772961439461</updated>
+    </task>
+    <task id="LOCAL-00027" summary="feat: block keyboard event 추가">
+      <option name="closed" value="true" />
+      <created>1772962404354</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1772962404354</updated>
+    </task>
+    <task id="LOCAL-00028" summary="feat: CommandMenu 컴포넌트 추가">
+      <option name="closed" value="true" />
+      <created>1773928268966</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1773928268966</updated>
+    </task>
+    <task id="LOCAL-00029" summary="feat: CommandMenu 컴포넌트 추가">
+      <option name="closed" value="true" />
+      <created>1774447167065</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1774447167065</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -420,7 +503,17 @@
     <MESSAGE value="fix: block dto, adapter type 변경" />
     <MESSAGE value="fix: Block 컴포넌트 event handler 추가" />
     <MESSAGE value="fix: di, infrastructures, useCase, presenter, actions 제거" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: di, infrastructures, useCase, presenter, actions 제거" />
+    <MESSAGE value="fix: di 제거, repository, blockOperation client로 이동" />
+    <MESSAGE value="fix: di 제거, repository, blockOperation client로 이동" />
+    <MESSAGE value="fix: transition, 실시간 동기화, di 제거" />
+    <MESSAGE value="fix: tailwinds 연동" />
+    <MESSAGE value="fix: DI 컨테이너에서 MockBlockRepository 인스턴스 할당으로 변경" />
+    <MESSAGE value="fix: rollback command 추가" />
+    <MESSAGE value="fix: block keyboard event 추가" />
+    <MESSAGE value="feat: block keyboard event 추가" />
+    <MESSAGE value="feat: block keyboard event 추가" />
+    <MESSAGE value="feat: CommandMenu 컴포넌트 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: CommandMenu 컴포넌트 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -434,6 +527,11 @@
           <url>file://$PROJECT_DIR$/packages/client/vms/BlockVM.ts</url>
           <line>20</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/client/components/block/Block.tsx</url>
+          <line>141</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

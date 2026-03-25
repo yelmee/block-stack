@@ -24,9 +24,9 @@ export  class BlockDTO implements IBlock{
     content: string[];
     parent_id: string;
     space_id: string;
-    last_updated: string;
-    last_modified: string;
-    created_time: string;
+    last_updated: Date;
+    last_modified: Date;
+    created_time: Date;
     created_by_id: string;
 
 }

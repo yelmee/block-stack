@@ -68,3 +68,7 @@
 // // }) satisfies GetStaticProps<{
 // //     repo: Repo
 // // }>
+
+export default function SignInPage() {
+    return <div>Sign in</div>;
+}

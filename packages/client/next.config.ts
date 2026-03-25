@@ -3,7 +3,12 @@ import type {
 } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Monorepo support: the client imports workspace package sources directly
+  // (e.g. `domains/src/...`). Allow Next to transpile them.
+  experimental: {
+    externalDir: true,
+  },
+  transpilePackages: ["domains", "adapters"],
 };
 
 export default nextConfig;
