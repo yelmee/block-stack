@@ -16,6 +16,7 @@ export  class BlockDTO implements IBlock{
         this.created_time = params.created_time
         this.last_updated = params.last_updated
         this.last_modified = params.last_modified
+        this.order = params.order
     }
 
     id: string;
@@ -28,6 +29,7 @@ export  class BlockDTO implements IBlock{
     last_modified: Date;
     created_time: Date;
     created_by_id: string;
+    order: number;
 
 }
 
