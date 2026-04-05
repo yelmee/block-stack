@@ -14,7 +14,15 @@ import {
     createRemoveBlockOperation,
     createUpdateBlockOperation
 } from "../../../lib/operations/blockOperations";
+import {
+    DragDropProvider,
+    KeyboardSensor,
+    PointerSensor,
+} from '@dnd-kit/react';
 
+import {
+    move,
+} from '@dnd-kit/helpers'
 
 interface BlockEditorProps {
     spaceId: string;
@@ -23,16 +31,35 @@ interface BlockEditorProps {
 
 export default  function Index({spaceId, userId}: BlockEditorProps){
 
-    const {blocks, isLoading, executeOperation} = useBlockEditor(spaceId, userId)
+    const {blocks, isLoading, executeOperation, reorderIndex} = useBlockEditor(spaceId, userId)
 
     const blockRefs = useRef<Map<string, HTMLDivElement>>(new Map())
 
+
+
     const handleCreateBlock = (id: string) => startTransition(async () => {
-        const newId = Number(id.split('-')[1]) + 1
-        const operation = await createInsertBlockOperation({type: "text", id: `block-${newId}`}, spaceId)
+
+        if(!blocks) return;
+        const sortedArray = Object.values(blocks).sort((a,b) => a.order - b.order)
+        const currentBlockIndex = sortedArray.findIndex((x) => x.id === id)
+        const isAfterCurrentBlock = blocks[currentBlockIndex+1]
+
+        let newId;
+
+        if(isAfterCurrentBlock){
+            newId = (blocks[currentBlockIndex].order + blocks[currentBlockIndex+1].order) / 2
+
+        }else{
+            newId = blocks[currentBlockIndex].order + 1
+
+        }
+
+        const operation = await createInsertBlockOperation({type: "text", id: `block-${sortedArray.length + 1}`, order: newId}, spaceId)
+
         if (operation) {
             await executeOperation(operation)
         }
+
 
         setTimeout(()=> {
             const newBlockElement = blockRefs.current.get(operation.pointer)
@@ -51,6 +78,25 @@ export default  function Index({spaceId, userId}: BlockEditorProps){
 
         }, 0)
     })
+
+    const handleDragEnd = (event: any) => {
+        try {
+            if(!blocks) return;
+            const blockArray = Object.values(blocks)
+
+            const newOrders = move(blockArray, event)
+            // const newOrders = arrayMove(blockArray, oldIndex, newIndex)
+
+          const newBlocks =  reorderIndex(newOrders.map(block=> block.id))
+
+            Object.values(newBlocks).forEach((block) => {
+                handleUpdateBlock(block.id, 'order', block.order)
+            })
+
+        } catch{
+
+        }
+    }
 
     const handleUpdateBlock = async (blockId: string, field: string, value: any) => {
         const operation = await createUpdateBlockOperation(blockId, field, value)
@@ -121,6 +167,14 @@ export default  function Index({spaceId, userId}: BlockEditorProps){
     if(isLoading) return <div>Loading...</div>
 
     return (
+        <DragDropProvider
+            onDragEnd={(event) => {
+                handleDragEnd(event)
+            }}
+            sensors={[
+                PointerSensor,
+                KeyboardSensor,
+            ]}>
         <div className="editor-container bg-zinc-800 max-w-4xl mx-auto py-8">
             {blocks && Object.values(blocks).map((block, index) => {
                 return (
@@ -146,5 +200,6 @@ export default  function Index({spaceId, userId}: BlockEditorProps){
             })
             }
         </div>
+        </DragDropProvider>
     )
 }

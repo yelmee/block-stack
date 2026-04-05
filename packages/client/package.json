@@ -12,6 +12,9 @@
     "db-local": "supabase init && supabase start"
   },
   "dependencies": {
+    "@dnd-kit/helpers": "^0.3.2",
+    "@dnd-kit/react": "^0.3.2",
+    "@dnd-kit/sortable": "^10.0.0",
     "@hookform/resolvers": "^4.0.0",
     "@supabase/auth-ui-react": "^0.4.7",
     "@supabase/auth-ui-shared": "^0.1.8",

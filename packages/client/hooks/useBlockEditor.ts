@@ -26,7 +26,7 @@ export function useBlockEditor(spaceId: string, userId: string) {
 
     // 초기 로드
     useEffect(() => {
-        const asyncLoadBlock = async () =>{
+        const asyncLoadBlock = async () => {
                 await loadBlocks();
         }
         asyncLoadBlock()
@@ -49,6 +49,25 @@ export function useBlockEditor(spaceId: string, userId: string) {
         //     supabase.removeChannel(channel);
         // };
     }, [spaceId]);
+
+    const reorderIndex = (blockIds: string[]): IBlockMapDTO => {
+
+        if(!blocks) return {};
+        let newBlocks: any = {}
+
+        blockIds.map((id, index) => {
+            const block = blocks[id]
+            newBlocks[id] =  {
+                    ...block,
+                    order: index,
+                    lastUpdated: new Date(),
+                }
+        })
+
+        setBlocks(newBlocks)
+
+        return newBlocks;
+    }
 
     async function loadBlocks() {
         setIsLoading(true);
@@ -126,6 +145,7 @@ export function useBlockEditor(spaceId: string, userId: string) {
     return {
         blocks,
         isLoading,
-        executeOperation
+        executeOperation,
+        reorderIndex
     };
 }

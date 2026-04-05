@@ -21,6 +21,7 @@ export const MOCK_BLOCKS: IBlockMapDTO = {
         created_time: new Date('2024-01-01T00:00:00'),
         last_updated: new Date('2024-01-01T00:00:00'),
         last_modified: new Date('2024-01-01T00:00:00'),
+        order: 0,
     },
     'block-2': {
         id: 'block-2',
@@ -33,6 +34,7 @@ export const MOCK_BLOCKS: IBlockMapDTO = {
         created_time: new Date('2024-01-01T00:00:01'),
         last_updated: new Date('2024-01-01T00:00:01'),
         last_modified: new Date('2024-01-01T00:00:01'),
+        order: 1,
     },
     'block-3': {
         id: 'block-3',
@@ -45,6 +47,7 @@ export const MOCK_BLOCKS: IBlockMapDTO = {
         created_time: new Date('2024-01-01T00:00:02'),
         last_updated: new Date('2024-01-01T00:00:02'),
         last_modified: new Date('2024-01-01T00:00:02'),
+        order: 2,
     },
     'block-4': {
         id: 'block-4',
@@ -57,6 +60,7 @@ export const MOCK_BLOCKS: IBlockMapDTO = {
         created_time: new Date('2024-01-01T00:00:03'),
         last_updated: new Date('2024-01-01T00:00:03'),
         last_modified: new Date('2024-01-01T00:00:03'),
+        order: 3,
     },
 };
 

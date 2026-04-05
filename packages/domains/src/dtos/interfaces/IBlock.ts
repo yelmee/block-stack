@@ -30,5 +30,6 @@ export interface IBlock {
     readonly last_modified: Date;
     readonly created_time: Date
     readonly created_by_id: string
+    readonly order: number;
 }
 

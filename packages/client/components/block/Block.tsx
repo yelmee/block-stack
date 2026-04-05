@@ -9,6 +9,9 @@ import {
 } from "domains/src/dtos/interfaces/IBlock";
 import CommandMenu
     from "./CommandMenu";
+import {
+    useSortable
+} from "@dnd-kit/react/sortable";
 
 interface IProps {
     block: IBlock;
@@ -23,10 +26,11 @@ interface IProps {
 export const Block = forwardRef<HTMLDivElement, IProps>(({block, onUpdate, onCreate, onDelete, onFocusPrevious, onFocusNext, onUpdateBlockType }, forwardedRef) => {
     const [content, setContent] = useState(block.content);
     const [searchQuery, setSearchQuery] = useState("");
-    // const [currentType, setCurrentType] = useState<BlockType>("text");
     const [showCommandMenu, setShowCommandMenu] = useState(false);
     const [commandMenuPosition, setCommandMenuPosition] = useState({top: 0, left: 0});
     const localRef = useRef<HTMLDivElement>(null);
+
+    const {ref: sortableRef} = useSortable({id: block.id, index: block.order});
 
     // Merge the forwarded ref with our local one
     const ref = (node: HTMLDivElement | null) => {
@@ -103,8 +107,14 @@ export const Block = forwardRef<HTMLDivElement, IProps>(({block, onUpdate, onCre
                 return 'text-2xl font-bold'
             case 'heading3':
                 return 'text-xl font-bold'
-            case 'text':
-                return 'font-mono bg-muted px-2 py-1 rounded'
+            case 'bulletList':
+                return 'pl-6 relative before:content-["•"] before:absolute before:left-0'
+            case 'numberedList':
+                return 'pl-6 relative before:content-["1."] before:absolute before:left-0'
+            case 'todo':
+                return 'pl-6 relative before:content-["☐"] before:absolute before:left-0'
+            case 'code':
+                return 'font-mono bg-muted px-2 py-1 rounded text-sm'
             default:
                 return ''
         }
@@ -113,6 +123,8 @@ export const Block = forwardRef<HTMLDivElement, IProps>(({block, onUpdate, onCre
 
     return (
         <div
+            ref={sortableRef}
+
             className="group relative py-1 px-2 hover:bg-muted/50 rounded flex">
 
             {
@@ -120,7 +132,8 @@ export const Block = forwardRef<HTMLDivElement, IProps>(({block, onUpdate, onCre
                 <CommandMenu onSelect={handleCommandMenu} onClose={()=> setShowCommandMenu(false)} searchQuery={searchQuery} position={commandMenuPosition} />
             }
                 {/* 드래그 핸들 (나중에 구현) */}
-                <span className="absolute left-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span
+                    className="absolute left-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
                     <button
                         className="bg-red text-muted-foreground hover:text-foreground p-1"
                         aria-label="Drag handle"
