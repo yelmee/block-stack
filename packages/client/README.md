@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📝 Block Editor - Notion-Style Collaborative Editor
 
-## Getting Started
+> **실시간 협업이 가능한 블록 기반 에디터**  
+> Next.js 14, TypeScript로 구현한 Notion 클론 프로젝트
 
-First, run the development server:
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://your-project.vercel.app)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org/)
 
+![Demo Screenshot](./docs/demo.gif)
+
+## ✨ 주요 기능
+
+### 🎯 핵심 기능
+- ✅ **블록 기반 에디터** - Notion처럼 자유로운 콘텐츠 편집
+- ✅ **Slash 커맨드** - `/` 입력으로 블록 타입 변경
+- ✅ **Drag & Drop** - 마우스로 블록 순서 변경
+- ✅ **자동 저장** - Debounced 저장으로 네트워크 효율화
+- ✅ **Optimistic UI** - 즉각적인 사용자 경험
+
+### 📦 블록 타입
+- **텍스트** - 기본 텍스트 블록
+- **제목** - H1, H2, H3 헤딩
+- **리스트** - 불릿, 숫자, 체크박스
+- **코드** - 코드 스니펫
+
+### 🛠️ 기술적 특징
+- **TypeScript** - 타입 안전성
+- **Repository 패턴** - 데이터 소스 추상화 (Mock/LocalStorage)
+- **Keyboard Shortcuts** - Enter, Backspace, Arrow Keys
+
+## 🚀 빠른 시작
+
+### 사전 요구사항
+- Node.js 18+
+- npm 또는 yarn
+
+### 설치
 ```bash
+# 1. 레포지토리 클론
+git clone https://github.com/YOUR_USERNAME/block-editor.git
+cd block-editor
+
+# 2. 의존성 설치
+npm install
+
+
+# 4. 개발 서버 실행
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# 5. http://localhost:3000 접속
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/index.tsx`. The page auto-updates as you edit the file.
+## 🏗️ 프로젝트 구조
+```
+src/
+├── app/                    # Next.js App Router
+├── components/
+│   └── editor/            # 에디터 컴포넌트
+│       ├── BlockEditor.tsx
+│       ├── Block.tsx
+│       └── CommandMenu.tsx
+├── hooks/
+│   └── useBlockEditor.ts  # 블록 상태 관리
+├── lib/
+│   ├── repositories/      # 데이터 접근 레이어
+│   └── mock/             # Mock 데이터
+└── types/
+    └── block.ts          # TypeScript 타입
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎨 기술 스택
 
-## Learn More
+### Frontend
+- **Next.js 14** - React 프레임워크
+- **TypeScript** - 타입 안전성
+- **Tailwind CSS** - 스타일링
+- **@dnd-kit** - Drag & Drop
 
-To learn more about Next.js, take a look at the following resources:
+### DevOps
+- **Vercel** - 배포 및 호스팅
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🧪 테스트 시나리오
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 단일 사용자
+1. 텍스트 입력 → 자동 저장
+2. Enter → 새 블록 생성
+3. Backspace → 빈 블록 삭제
+4. `/` → 커맨드 메뉴
+5. Drag & Drop → 순서 변경
