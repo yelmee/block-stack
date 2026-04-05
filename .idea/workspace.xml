@@ -4,17 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fd221c6-5397-426a-a1fd-2d5fcace444d" name="변경" comment="fix: add app file">
-      <change afterPath="$PROJECT_DIR$/packages/client/pages/index.tsx" afterDir="false" />
+    <list default="true" id="4fd221c6-5397-426a-a1fd-2d5fcace444d" name="변경" comment="feat: order 정렬 변경 기능 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/client/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/client/components/block/Block.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/components/block/Block.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/client/hooks/useBlockEditor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/hooks/useBlockEditor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/client/lib/mockBlocks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/lib/mockBlocks.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/client/components/block/CommandMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/components/block/CommandMenu.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/client/pages/space/[spaceId]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/pages/space/[spaceId]/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/domains/src/dtos/interfaces/IBlock.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/domains/src/dtos/interfaces/IBlock.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/client/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/tsconfig.tsbuildinfo" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +229,8 @@
       <workItem from="1774242796975" duration="7264000" />
       <workItem from="1774446972796" duration="821000" />
       <workItem from="1774447811078" duration="14000" />
-      <workItem from="1775302448429" duration="8479000" />
+      <workItem from="1775302448429" duration="9752000" />
+      <workItem from="1775389338905" duration="2684000" />
     </task>
     <task id="LOCAL-00001" summary="add domains folder">
       <option name="closed" value="true" />
@@ -483,7 +480,31 @@
       <option name="project" value="LOCAL" />
       <updated>1774787649791</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="feat: order 정렬 변경 기능 추가">
+      <option name="closed" value="true" />
+      <created>1775376482485</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1775376482485</updated>
+    </task>
+    <task id="LOCAL-00033" summary="feat: order 정렬 변경 기능 추가">
+      <option name="closed" value="true" />
+      <created>1775376489496</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1775376489496</updated>
+    </task>
+    <task id="LOCAL-00034" summary="feat: order 정렬 변경 기능 추가">
+      <option name="closed" value="true" />
+      <created>1775376499996</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1775376499996</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -504,7 +525,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="add adapters folder" />
     <MESSAGE value="add client folder" />
     <MESSAGE value="add top folder" />
     <MESSAGE value="update dto type Temporarily" />
@@ -529,7 +549,8 @@
     <MESSAGE value="feat: CommandMenu 컴포넌트 추가" />
     <MESSAGE value="fix: add config files" />
     <MESSAGE value="fix: add app file" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: add app file" />
+    <MESSAGE value="feat: order 정렬 변경 기능 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: order 정렬 변경 기능 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -546,7 +567,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/packages/client/components/block/Block.tsx</url>
-          <line>154</line>
+          <line>169</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

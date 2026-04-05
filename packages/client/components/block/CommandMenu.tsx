@@ -3,6 +3,7 @@ import * as React
     from 'react';
 import {
     useEffect,
+    useMemo,
     useRef,
     useState
 } from 'react';
@@ -15,35 +16,53 @@ type Props = {
 };
 
 const COMMAND_MENU_TYPE = [
-    {icon: "H1", description: "", type: "heading1", label: "제목1"},
-    {icon: "📝", description: "", type: "text", label: "내용"}
+    { type: 'text', label: 'Text', description: 'Plain text', icon: '📝' },
+    { type: 'heading1', label: 'Heading 1', description: 'Big section heading', icon: 'H1' },
+    { type: 'heading2', label: 'Heading 2', description: 'Medium section heading', icon: 'H2' },
+    { type: 'heading3', label: 'Heading 3', description: 'Small section heading', icon: 'H3' },
+    { type: 'bulletList', label: 'Bullet List', description: 'Simple bullet list', icon: '•' },
+    { type: 'numberedList', label: 'Numbered List', description: 'Numbered list', icon: '1.' },
+    { type: 'todo', label: 'To-do', description: 'Track tasks', icon: '☐' },
+    { type: 'code', label: 'Code', description: 'Code snippet', icon: '</>' },
 ]
+
 export default function CommandMenu({onClose, onSelect, position, searchQuery}: Props) {
     const [selectedIndex, setSelectedIndex] = useState(0)
     const menuRef = useRef<HTMLDivElement>(null)
 
-    const filteredBlockType = COMMAND_MENU_TYPE.filter(cmt => cmt.type.toLocaleLowerCase().includes(searchQuery) || cmt.description.toLocaleLowerCase().includes(searchQuery))
+    const filteredBlockType = useMemo(
+        () =>
+            COMMAND_MENU_TYPE.filter(
+                cmt =>
+                    cmt.type.toLocaleLowerCase().includes(searchQuery) ||
+                    cmt.description.toLocaleLowerCase().includes(searchQuery)
+            ),
+        [searchQuery]
+    )
 
     useEffect(() => {
-        const handleKeydown = (e: KeyboardEvent)=>{
-            if(e.key === "ArrowDown"){
+        const handleKeydown = (e: KeyboardEvent) => {
+            if (e.key === 'ArrowDown') {
                 e.preventDefault()
-                setSelectedIndex(prev => Math.min(prev + 1, filteredBlockType.length - 1 ))
-            } else if(e.key === "ArrowUp"){
+                setSelectedIndex(prev =>
+                    Math.min(prev + 1, Math.max(filteredBlockType.length - 1, 0))
+                )
+            } else if (e.key === 'ArrowUp') {
                 e.preventDefault()
                 setSelectedIndex(prev => Math.max(prev - 1, 0))
-            } else if(e.key === "Enter"){
+            } else if (e.key === 'Enter') {
                 e.preventDefault()
-                if(!filteredBlockType[selectedIndex]) return;
+                e.stopPropagation()
+                if (!filteredBlockType[selectedIndex]) return
                 onSelect(filteredBlockType[selectedIndex].type)
-            } else if(e.key === "Escape"){
+            } else if (e.key === 'Escape') {
                 e.preventDefault()
                 onClose()
             }
         }
-        document.addEventListener("keydown", handleKeydown)
-        return () => document.removeEventListener("keydown", handleKeydown)
-    }, [selectedIndex, filteredBlockType]);
+        document.addEventListener('keydown', handleKeydown, true)
+        return () => document.removeEventListener('keydown', handleKeydown, true)
+    }, [selectedIndex, filteredBlockType, onSelect, onClose])
 
     useEffect(() => {
         const handleClickOutside = (e: any) => {
@@ -80,11 +99,8 @@ export default function CommandMenu({onClose, onSelect, position, searchQuery}: 
                         ref={menuRef}
                         key={cmt.type}
                     >
-                        selectedIndex{selectedIndex}
-                        index{index}
                         <span>{cmt.icon}</span>
                         <span>{cmt.label}</span>
-                        <span>{cmt.description}</span>
                     </div>)
             }
 

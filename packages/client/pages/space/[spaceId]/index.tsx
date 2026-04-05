@@ -47,10 +47,10 @@ export default  function Index({spaceId, userId}: BlockEditorProps){
         let newId;
 
         if(isAfterCurrentBlock){
-            newId = (blocks[currentBlockIndex].order + blocks[currentBlockIndex+1].order) / 2
+            newId = (sortedArray[currentBlockIndex].order + sortedArray[currentBlockIndex+1].order) / 2
 
         }else{
-            newId = blocks[currentBlockIndex].order + 1
+            newId = sortedArray[currentBlockIndex].order + 1
 
         }
 

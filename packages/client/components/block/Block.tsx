@@ -15,12 +15,12 @@ import {
 
 interface IProps {
     block: IBlock;
-    onUpdate: ( field: string, value: any) => void;
+    onUpdate: ( field: string, value: any) => void | Promise<void>;
     onCreate: () => void;
     onDelete: () => void;
     onFocusPrevious: () => void;
     onFocusNext: () => void;
-    onUpdateBlockType: (value: any) => void;
+    onUpdateBlockType: (value: any) => void | Promise<void>;
 }
 
 export const Block = forwardRef<HTMLDivElement, IProps>(({block, onUpdate, onCreate, onDelete, onFocusPrevious, onFocusNext, onUpdateBlockType }, forwardedRef) => {
@@ -29,12 +29,17 @@ export const Block = forwardRef<HTMLDivElement, IProps>(({block, onUpdate, onCre
     const [showCommandMenu, setShowCommandMenu] = useState(false);
     const [commandMenuPosition, setCommandMenuPosition] = useState({top: 0, left: 0});
     const localRef = useRef<HTMLDivElement>(null);
+    /** Last text from onInput — DOM textContent can be wrong when Enter is handled from document listener */
+    const draftTextRef = useRef('')
 
     const {ref: sortableRef} = useSortable({id: block.id, index: block.order});
 
     // Merge the forwarded ref with our local one
     const ref = (node: HTMLDivElement | null) => {
         (localRef as React.RefObject<HTMLDivElement | null>).current = node
+        if (node) {
+            draftTextRef.current = node.textContent ?? ''
+        }
         if (typeof forwardedRef === 'function') {
             forwardedRef(node)
         } else if (forwardedRef) {
@@ -44,6 +49,7 @@ export const Block = forwardRef<HTMLDivElement, IProps>(({block, onUpdate, onCre
 
     const handleInput = (e: any) => {
         const text = e.currentTarget.textContent || '';
+        draftTextRef.current = text
 
         if(text === '/' || text.endsWith(' /')){
             e.preventDefault()
@@ -54,23 +60,32 @@ export const Block = forwardRef<HTMLDivElement, IProps>(({block, onUpdate, onCre
 
             setCommandMenuPosition({top: rect.top + window.scrollX, left: rect.left + window.scrollY})
         } else if(showCommandMenu && text.includes('/')){
+            const slashIndex = text.lastIndexOf('/')
+            const query = text.slice(slashIndex + 1)
             e.preventDefault()
-            const search = e.key.match('')
-            setSearchQuery(search)
+            // const search = e.key.match('')
+            setSearchQuery(query)
         } else {
             // setShowCommandMenu(false)
         }
-        onUpdate('content', [text])
+        const newContent = text.replace(/\/[^/]*$/, '').trim()
+        onUpdate('content', [newContent])
     }
 
-    const handleCommandMenu = (type: string) => {
-        if(showCommandMenu){
-            const newContent = content[0].replace(/\/[^/]*$/, '').trim()
-            setContent([newContent])
-            onUpdate(newContent, "")
-            onUpdateBlockType(type)
-            setShowCommandMenu(false)
+    const handleCommandMenu = async (type: string) => {
+        if (!showCommandMenu) return
+        const raw = draftTextRef.current
+        const newContent = raw.replace(/\/[^/]*$/, '').trim()
+        const el = localRef.current
+        if (el) {
+            el.textContent = newContent
         }
+        draftTextRef.current = newContent
+        setContent([newContent])
+        setShowCommandMenu(false)
+        setSearchQuery('')
+        await onUpdate('content', [newContent])
+        await onUpdateBlockType(type)
     }
     
     const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>)=> {
