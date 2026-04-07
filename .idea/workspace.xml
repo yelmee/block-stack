@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fd221c6-5397-426a-a1fd-2d5fcace444d" name="변경" comment="feat: order 정렬 변경 기능 추가">
+    <list default="true" id="4fd221c6-5397-426a-a1fd-2d5fcace444d" name="변경" comment="fix: BlockMapDTO order type 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/client/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/client/components/block/Block.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/components/block/Block.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/client/components/block/CommandMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/components/block/CommandMenu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/client/pages/space/[spaceId]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/pages/space/[spaceId]/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/client/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client/tsconfig.tsbuildinfo" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +225,7 @@
       <workItem from="1774446972796" duration="821000" />
       <workItem from="1774447811078" duration="14000" />
       <workItem from="1775302448429" duration="9752000" />
-      <workItem from="1775389338905" duration="2684000" />
+      <workItem from="1775389338905" duration="3439000" />
     </task>
     <task id="LOCAL-00001" summary="add domains folder">
       <option name="closed" value="true" />
@@ -504,7 +499,31 @@
       <option name="project" value="LOCAL" />
       <updated>1775376499996</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="fix: 슬래시 제거 버그 수정">
+      <option name="closed" value="true" />
+      <created>1775400071164</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1775400071164</updated>
+    </task>
+    <task id="LOCAL-00036" summary="feat: README.md 추가">
+      <option name="closed" value="true" />
+      <created>1775400095152</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1775400095152</updated>
+    </task>
+    <task id="LOCAL-00037" summary="fix: BlockMapDTO order type 추가">
+      <option name="closed" value="true" />
+      <created>1775400253077</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1775400253077</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -525,9 +544,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="add client folder" />
-    <MESSAGE value="add top folder" />
-    <MESSAGE value="update dto type Temporarily" />
     <MESSAGE value="update entities type Temporarily" />
     <MESSAGE value="refactor client code for nextjs" />
     <MESSAGE value="feat: mock data repo 추가" />
@@ -550,7 +566,10 @@
     <MESSAGE value="fix: add config files" />
     <MESSAGE value="fix: add app file" />
     <MESSAGE value="feat: order 정렬 변경 기능 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: order 정렬 변경 기능 추가" />
+    <MESSAGE value="fix: 슬래시 제거 버그 수정" />
+    <MESSAGE value="feat: README.md 추가" />
+    <MESSAGE value="fix: BlockMapDTO order type 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: BlockMapDTO order type 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
