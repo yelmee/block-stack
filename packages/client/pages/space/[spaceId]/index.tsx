@@ -14,6 +14,7 @@ import {
     createRemoveBlockOperation,
     createUpdateBlockOperation
 } from "../../../lib/operations/blockOperations";
+import { renderCounter } from "../../../lib/renderCounter";
 import {
     DragDropProvider,
     KeyboardSensor,
@@ -99,9 +100,25 @@ export default  function Index({spaceId, userId}: BlockEditorProps){
     }
 
     const handleUpdateBlock = async (blockId: string, field: string, value: any) => {
-        const operation = await createUpdateBlockOperation(blockId, field, value)
+        if (field === 'content') {
+            renderCounter.reset();
+            performance.mark('keystroke:start');
+        }
 
+        const operation = await createUpdateBlockOperation(blockId, field, value)
         await executeOperation(operation)
+
+        if (field === 'content') {
+            setTimeout(() => {
+                performance.mark('keystroke:end');
+                performance.measure('keystroke', 'keystroke:start', 'keystroke:end');
+                const entry = performance.getEntriesByName('keystroke').at(-1);
+                console.log(
+                    `[Perf] renders: ${renderCounter.get()}, ` +
+                    `duration: ${entry?.duration.toFixed(2)}ms`
+                );
+            }, 0);
+        }
     }
 
     const handleDeleteBlock = (blockId: string, index: number) => startTransition(async () => {
