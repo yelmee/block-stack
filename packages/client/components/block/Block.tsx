@@ -12,6 +12,7 @@ import CommandMenu
 import {
     useSortable
 } from "@dnd-kit/react/sortable";
+import { renderCounter } from "../../lib/renderCounter";
 
 interface IProps {
     block: IBlock;
@@ -24,6 +25,7 @@ interface IProps {
 }
 
 export const Block = forwardRef<HTMLDivElement, IProps>(({block, onUpdate, onCreate, onDelete, onFocusPrevious, onFocusNext, onUpdateBlockType }, forwardedRef) => {
+    renderCounter.increment();
     const [content, setContent] = useState(block.content);
     const [searchQuery, setSearchQuery] = useState("");
     const [showCommandMenu, setShowCommandMenu] = useState(false);
